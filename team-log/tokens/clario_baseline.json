@@ -1,0 +1,585 @@
+{
+  "url": "https://clario.framer.website/",
+  "capturedAt": "2026-07-05T23:56:31.446Z",
+  "viewports": {
+    "1440x1400": {
+      "heroH1": {
+        "text": "Take control of your finances — with clarity",
+        "fontFamily": "Manrope, \"Manrope Placeholder\", sans-serif",
+        "fontSize": "64px",
+        "fontWeight": "500",
+        "letterSpacing": "-2.56px",
+        "lineHeight": "64px",
+        "color": "rgb(255, 255, 255)",
+        "width": 720,
+        "x": 360,
+        "y": 202.40625
+      },
+      "nav": {
+        "height": 80,
+        "width": 1440,
+        "x": 0,
+        "y": 0,
+        "bg": "rgba(5, 5, 5, 0.5)",
+        "paddingX": "40px",
+        "links": [
+          {
+            "text": "Clario",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "How it works",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "How it works",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Features",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "Features",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Pricing",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "Pricing",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Blog",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          }
+        ]
+      },
+      "ctaButtons": {
+        "Get Started Free": {
+          "width": 201,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Get Started": {
+          "width": 201,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Contact": {
+          "width": 135,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Contact us": {
+          "width": 135,
+          "height": 45,
+          "padding": "12px 20px 12px 0px",
+          "borderRadius": "23px",
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "none",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Waitlist": {
+          "width": 128,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(23, 23, 23)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "none",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        }
+      },
+      "stepCards": [
+        {
+          "name": "Step 1",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        },
+        {
+          "name": "Step 2",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        },
+        {
+          "name": "Step 3",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        }
+      ],
+      "stepPill": {
+        "text": "Step 1",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "padding": "0px",
+        "border": "0px none rgb(0, 0, 0)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "letterSpacing": "normal"
+      },
+      "grids": {
+        "realtime": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 500
+        },
+        "features": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 600
+        },
+        "pricing": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 600
+        }
+      },
+      "heroOffsets": {
+        "badge": {
+          "y": 0,
+          "height": 0
+        },
+        "h1": {
+          "y": 202.40625,
+          "height": 128
+        },
+        "subhead": null,
+        "cta": {
+          "y": 424.40625,
+          "height": 45
+        },
+        "mockup": null
+      }
+    },
+    "1920x1200": {
+      "heroH1": {
+        "text": "Take control of your finances — with clarity",
+        "fontFamily": "Manrope, \"Manrope Placeholder\", sans-serif",
+        "fontSize": "64px",
+        "fontWeight": "500",
+        "letterSpacing": "-2.56px",
+        "lineHeight": "64px",
+        "color": "rgb(255, 255, 255)",
+        "width": 720,
+        "x": 600,
+        "y": 202.40625
+      },
+      "nav": {
+        "height": 80,
+        "width": 1920,
+        "x": 0,
+        "y": 0,
+        "bg": "rgba(5, 5, 5, 0.5)",
+        "paddingX": "40px",
+        "links": [
+          {
+            "text": "Clario",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "How it works",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "How it works",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Features",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "Features",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Pricing",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          },
+          {
+            "text": "Pricing",
+            "fontSize": "16px",
+            "fontWeight": "500",
+            "color": "rgb(255, 255, 255)"
+          },
+          {
+            "text": "Blog",
+            "fontSize": "12px",
+            "fontWeight": "400",
+            "color": "rgb(0, 0, 238)"
+          }
+        ]
+      },
+      "ctaButtons": {
+        "Get Started Free": {
+          "width": 201,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Get Started": {
+          "width": 201,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Contact": {
+          "width": 135,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(140, 255, 46)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "rgba(132, 255, 31, 0.32) 0px 8px 20px 0px",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Contact us": {
+          "width": 135,
+          "height": 45,
+          "padding": "12px 20px 12px 0px",
+          "borderRadius": "23px",
+          "background": "rgba(0, 0, 0, 0)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "none",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        },
+        "Waitlist": {
+          "width": 128,
+          "height": 45,
+          "padding": "12px 20px",
+          "borderRadius": "23px",
+          "background": "rgb(23, 23, 23)",
+          "color": "rgb(0, 0, 238)",
+          "boxShadow": "none",
+          "fontSize": "12px",
+          "fontWeight": "400"
+        }
+      },
+      "stepCards": [
+        {
+          "name": "Step 1",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        },
+        {
+          "name": "Step 2",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        },
+        {
+          "name": "Step 3",
+          "width": 320,
+          "height": 513.203125,
+          "borderRadius": "0px",
+          "background": "rgba(0, 0, 0, 0)",
+          "boxShadow": "none",
+          "padding": "0px"
+        }
+      ],
+      "stepPill": {
+        "text": "Step 1",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "padding": "0px",
+        "border": "0px none rgb(0, 0, 0)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "letterSpacing": "normal"
+      },
+      "grids": {
+        "realtime": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 500
+        },
+        "features": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 600
+        },
+        "pricing": {
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "gap": "normal",
+          "childCount": 1,
+          "width": 600
+        }
+      },
+      "heroOffsets": {
+        "badge": {
+          "y": 0,
+          "height": 0
+        },
+        "h1": {
+          "y": 202.40625,
+          "height": 128
+        },
+        "subhead": null,
+        "cta": {
+          "y": 424.40625,
+          "height": 45
+        },
+        "mockup": null
+      }
+    }
+  },
+  "animationScan": {
+    "animations": [],
+    "tech": {
+      "framerAppearElements": 11,
+      "framerAppearSample": [
+        {
+          "id": "7s1f6r",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "177gwxk",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "bk2w7e",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "1revpca",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "t14pul",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "d2trik",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "1s7qg2k",
+          "tag": "DIV",
+          "name": "Right",
+          "style": {
+            "opacity": "1",
+            "transform": "perspective(1200px)",
+            "transition": ""
+          }
+        },
+        {
+          "id": "1ep9z4t",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "km1gvs",
+          "tag": "DIV",
+          "name": "Desktop",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "uzhmmj",
+          "tag": "DIV",
+          "name": "",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        },
+        {
+          "id": "n0ccwk",
+          "tag": "A",
+          "name": "Light",
+          "style": {
+            "opacity": "1",
+            "transform": "none",
+            "transition": ""
+          }
+        }
+      ],
+      "scrollEffectElements": 0
+    }
+  },
+  "pricingBehavior": {
+    "hasMonthly": true,
+    "hasYearly": true,
+    "starterPriceText": "$1.2M+ Saved",
+    "monthlyClickable": "DIV ",
+    "yearPriceAfterClick": "$1.2M+ Saved",
+    "toggleFunctional": false
+  },
+  "faqModel": {
+    "hasFaqHeading": true,
+    "detailsCount": 0,
+    "expandableCount": 0,
+    "numberedItemCount": 30,
+    "isAccordion": false
+  },
+  "blogLinks": {
+    "count": 6,
+    "sample": [
+      {
+        "href": "./blog#blog",
+        "text": "Blog"
+      },
+      {
+        "href": "./blog#blog",
+        "text": "View all posts"
+      },
+      {
+        "href": "./blog/getting-started#post",
+        "text": ""
+      },
+      {
+        "href": "./blog/getting-started#post",
+        "text": "Read more"
+      },
+      {
+        "href": "./blog/landing-page-design#post",
+        "text": ""
+      },
+      {
+        "href": "./blog/landing-page-design#post",
+        "text": "Read more"
+      }
+    ]
+  }
+}

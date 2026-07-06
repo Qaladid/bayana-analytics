@@ -1,0 +1,306 @@
+{
+  "url": "http://localhost:3456",
+  "capturedAt": "2026-07-06T00:38:01.764Z",
+  "viewports": {
+    "1440x1400": {
+      "heroH1": {
+        "text": "Take control of your finances — with clarity",
+        "fontFamily": "Manrope, sans-serif",
+        "fontSize": "64px",
+        "fontWeight": "500",
+        "letterSpacing": "-2.56px",
+        "lineHeight": "64px",
+        "color": "rgb(255, 255, 255)",
+        "width": 720,
+        "x": 360,
+        "y": 418.75,
+        "hasEmDash": true
+      },
+      "nav": {
+        "height": 80,
+        "width": 1440,
+        "bg": "rgba(5, 5, 5, 0.5) none repeat scroll 0% 0% / auto padding-box border-box",
+        "paddingX": "40px"
+      },
+      "ctaButton": {
+        "width": 181,
+        "height": 22,
+        "padding": "0px",
+        "borderRadius": "0px",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "fontSize": "16px",
+        "textContent": "Get Started Free",
+        "textCount": 1
+      },
+      "stepPill": {
+        "text": "Step 1",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(140, 255, 46)",
+        "borderRadius": "0px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.32px",
+        "width": 276,
+        "height": 24
+      },
+      "stepCards": [
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        }
+      ],
+      "realtimeCardCount": 4,
+      "featureCardCount": 6,
+      "priceCardCount": 2,
+      "popularBadge": {
+        "text": "POPULAR",
+        "visible": true
+      },
+      "sections": {
+        "nav": true,
+        "hero": true,
+        "realtime": true,
+        "howitworks": true,
+        "stats": true,
+        "features": true,
+        "comparison": true,
+        "testimonial": true,
+        "pricing": true,
+        "faq": true,
+        "blog": true,
+        "finalcta": true,
+        "footer": true
+      },
+      "animation": {
+        "framerAppearElements": 0,
+        "opacityStyledDivs": 60
+      },
+      "consoleErrors": [],
+      "bodyBg": "rgb(5, 5, 5)",
+      "bodyFont": "Manrope, sans-serif"
+    },
+    "1920x1200": {
+      "heroH1": {
+        "text": "Take control of your finances — with clarity",
+        "fontFamily": "Manrope, sans-serif",
+        "fontSize": "64px",
+        "fontWeight": "500",
+        "letterSpacing": "-2.56px",
+        "lineHeight": "64px",
+        "color": "rgb(255, 255, 255)",
+        "width": 720,
+        "x": 600,
+        "y": 318.75,
+        "hasEmDash": true
+      },
+      "nav": {
+        "height": 80,
+        "width": 1920,
+        "bg": "rgba(5, 5, 5, 0.5) none repeat scroll 0% 0% / auto padding-box border-box",
+        "paddingX": "40px"
+      },
+      "ctaButton": {
+        "width": 181,
+        "height": 22,
+        "padding": "0px",
+        "borderRadius": "0px",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "fontSize": "16px",
+        "textContent": "Get Started Free",
+        "textCount": 1
+      },
+      "stepPill": {
+        "text": "Step 1",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(140, 255, 46)",
+        "borderRadius": "0px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.32px",
+        "width": 276,
+        "height": 24
+      },
+      "stepCards": [
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 320,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        }
+      ],
+      "realtimeCardCount": 4,
+      "featureCardCount": 6,
+      "priceCardCount": 2,
+      "popularBadge": {
+        "text": "POPULAR",
+        "visible": true
+      },
+      "sections": {
+        "nav": true,
+        "hero": true,
+        "realtime": true,
+        "howitworks": true,
+        "stats": true,
+        "features": true,
+        "comparison": true,
+        "testimonial": true,
+        "pricing": true,
+        "faq": true,
+        "blog": true,
+        "finalcta": true,
+        "footer": true
+      },
+      "animation": {
+        "framerAppearElements": 0,
+        "opacityStyledDivs": 60
+      },
+      "consoleErrors": [],
+      "bodyBg": "rgb(5, 5, 5)",
+      "bodyFont": "Manrope, sans-serif"
+    },
+    "390x844": {
+      "heroH1": {
+        "text": "Take control of your finances — with clarity",
+        "fontFamily": "Manrope, sans-serif",
+        "fontSize": "64px",
+        "fontWeight": "500",
+        "letterSpacing": "-2.56px",
+        "lineHeight": "64px",
+        "color": "rgb(255, 255, 255)",
+        "width": 310,
+        "x": 40,
+        "y": 198,
+        "hasEmDash": true
+      },
+      "nav": {
+        "height": 80,
+        "width": 390,
+        "bg": "rgba(5, 5, 5, 0.5) none repeat scroll 0% 0% / auto padding-box border-box",
+        "paddingX": "40px"
+      },
+      "ctaButton": {
+        "width": 181,
+        "height": 22,
+        "padding": "0px",
+        "borderRadius": "0px",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "none",
+        "fontSize": "16px",
+        "textContent": "Get Started Free",
+        "textCount": 1
+      },
+      "stepPill": {
+        "text": "Step 1",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(140, 255, 46)",
+        "borderRadius": "0px",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "letterSpacing": "-0.32px",
+        "width": 266,
+        "height": 24
+      },
+      "stepCards": [
+        {
+          "width": 310,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 310,
+          "height": 396.25,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        },
+        {
+          "width": 310,
+          "height": 373.5,
+          "borderRadius": "30px",
+          "background": "rgb(13, 13, 13)",
+          "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6px 4px 0px, rgba(23, 23, 23, 0.01) 0px 11px 4px 0px, rgba(23, 23, 23, 0) 0px 16px 5px 0px",
+          "padding": "10px 10px 30px"
+        }
+      ],
+      "realtimeCardCount": 4,
+      "featureCardCount": 6,
+      "priceCardCount": 2,
+      "popularBadge": {
+        "text": "POPULAR",
+        "visible": true
+      },
+      "sections": {
+        "nav": true,
+        "hero": true,
+        "realtime": true,
+        "howitworks": true,
+        "stats": true,
+        "features": true,
+        "comparison": true,
+        "testimonial": true,
+        "pricing": true,
+        "faq": true,
+        "blog": true,
+        "finalcta": true,
+        "footer": true
+      },
+      "animation": {
+        "framerAppearElements": 0,
+        "opacityStyledDivs": 60
+      },
+      "consoleErrors": [],
+      "bodyBg": "rgb(5, 5, 5)",
+      "bodyFont": "Manrope, sans-serif"
+    }
+  }
+}

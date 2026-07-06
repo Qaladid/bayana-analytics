@@ -1,0 +1,280 @@
+{
+  "stepCardsDeep": [
+    {
+      "name": "Step 1",
+      "inner": {
+        "tag": "DIV",
+        "width": 320,
+        "height": 513,
+        "borderRadius": "30px",
+        "background": "rgb(13, 13, 13)",
+        "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6",
+        "padding": "10px 10px 30px",
+        "_radius": 30
+      }
+    },
+    {
+      "name": "Step 2",
+      "inner": {
+        "tag": "DIV",
+        "width": 320,
+        "height": 513,
+        "borderRadius": "30px",
+        "background": "rgb(13, 13, 13)",
+        "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6",
+        "padding": "10px 10px 30px",
+        "_radius": 30
+      }
+    },
+    {
+      "name": "Step 3",
+      "inner": {
+        "tag": "DIV",
+        "width": 320,
+        "height": 513,
+        "borderRadius": "30px",
+        "background": "rgb(13, 13, 13)",
+        "boxShadow": "rgba(23, 23, 23, 0.15) 0px 1px 0px 0px inset, rgba(23, 23, 23, 0.15) 0px -1px 0px 0px inset, rgba(23, 23, 23, 0.4) 0px 1px 2px 0px, rgba(23, 23, 23, 0.19) 0px 3px 8px 0px, rgba(23, 23, 23, 0.05) 0px 6",
+        "padding": "10px 10px 30px",
+        "_radius": 30
+      }
+    }
+  ],
+  "stepPillDeep": {
+    "text": "Step 1",
+    "tag": "P",
+    "width": 45,
+    "height": 22,
+    "background": "rgba(0, 0, 0, 0)",
+    "color": "rgb(140, 255, 46)",
+    "borderRadius": "0px",
+    "padding": "0px",
+    "fontSize": "16px",
+    "fontWeight": "500",
+    "letterSpacing": "-0.32px"
+  },
+  "gridsDeep": {
+    "realtime": null,
+    "features": null,
+    "pricing": null,
+    "howitworks": null
+  },
+  "pricingDeep": {
+    "prices": [
+      {
+        "text": "$1.2M+ Saved",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 3503
+      },
+      {
+        "text": "$1.2M+ Saved",
+        "fontSize": "34px",
+        "fontWeight": "500",
+        "color": "rgb(255, 255, 255)",
+        "y": 3503
+      },
+      {
+        "text": "$29/month",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$29",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$29",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$29",
+        "fontSize": "48px",
+        "fontWeight": "500",
+        "color": "rgb(255, 255, 255)",
+        "y": 7258
+      },
+      {
+        "text": "$49/month",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$49",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$49",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "color": "rgb(0, 0, 0)",
+        "y": 7258
+      },
+      {
+        "text": "$49",
+        "fontSize": "48px",
+        "fontWeight": "500",
+        "color": "rgb(255, 255, 255)",
+        "y": 7258
+      }
+    ],
+    "popularBadge": {
+      "text": "POPULAR",
+      "background": "rgb(23, 23, 23)",
+      "color": "rgb(0, 0, 0)",
+      "borderRadius": "0px 16px",
+      "fontSize": "12px",
+      "padding": "8px 16px",
+      "width": 91,
+      "height": 26
+    },
+    "tierNames": [
+      "Trusted by 3k+ Freelancers",
+      "Team-friendly, sync accounts easily",
+      "Product Manager",
+      "Starter",
+      "Pro",
+      "Trusted by teams worldwide",
+      "Pro Tips"
+    ]
+  },
+  "buttonTextColors": {
+    "getStarted": {
+      "label": "Get Started",
+      "innerTag": "P",
+      "color": "rgb(13, 13, 13)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "text": "Get Started Free"
+    },
+    "contact": {
+      "label": "Contact",
+      "innerTag": "P",
+      "color": "rgb(13, 13, 13)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "text": "Contact"
+    },
+    "waitlist": {
+      "label": "Waitlist",
+      "innerTag": "P",
+      "color": "rgb(255, 255, 255)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "text": "Waitlist"
+    }
+  },
+  "heroDeep": {
+    "badge": {
+      "text": "All-in-One Finance Toolkit",
+      "y": 0,
+      "height": 0,
+      "x": 0,
+      "width": 0,
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "borderRadius": "0px",
+      "padding": "0px",
+      "fontSize": "12px"
+    },
+    "subhead": {
+      "text": "All your money insights, finally in one place — tr...",
+      "y": 340,
+      "height": 54,
+      "width": 540,
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "color": "rgba(255, 255, 255, 0.65)",
+      "lineHeight": "27px"
+    },
+    "mockup": {
+      "y": 540,
+      "height": 578,
+      "x": 231,
+      "width": 978,
+      "src": "https://framerusercontent.com/images/bwrnBJGQrVv3p54GisJaGc1"
+    }
+  },
+  "sectionBgs": [
+    {
+      "text": "Take control of your finances — with clarity",
+      "y": 202,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "How Clario works",
+      "y": 1822,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "See your money in real time, clearly.",
+      "y": 2633,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "Designed for clarity, built for better money decis",
+      "y": 3964,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "There’s a smarter way to manage money",
+      "y": 4947,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "Loved by individuals and small teams",
+      "y": 5582,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "Simple plans.",
+      "y": 7005,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "$29",
+      "y": 7258,
+      "bg": "rgb(13, 13, 13)"
+    },
+    {
+      "text": "$49",
+      "y": 7258,
+      "bg": "rgb(13, 13, 13)"
+    },
+    {
+      "text": "Got questions?We’ve got answers.",
+      "y": 8084,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "Explore the blog",
+      "y": 9045,
+      "bg": "rgb(5, 5, 5)"
+    },
+    {
+      "text": "Ready to manage your money smarter?",
+      "y": 10320,
+      "bg": "rgb(13, 13, 13)"
+    }
+  ],
+  "footer": {
+    "text": "ClarioYour all-in-one money management tool.Track your income, set goals, and stay on top of your finances — effortlessly.Designed by Kadir Calik ©2026Quick MenuHow it worksFeaturesTestimonialsPricing",
+    "bg": "rgb(13, 13, 13)",
+    "height": 311,
+    "y": 10712
+  }
+}

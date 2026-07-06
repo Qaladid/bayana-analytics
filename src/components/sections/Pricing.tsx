@@ -24,12 +24,12 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-[155px] px-10">
+    <section id="pricing" className="py-[60px] md:py-[100px] px-5 md:px-10">
       <div className="max-w-[1199px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="text-center mb-12"
         >
@@ -57,15 +57,15 @@ export default function Pricing() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[800px] mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto"
         >
           {tiers.map((tier) => (
             <motion.div
               key={tier.name}
               variants={fadeUpCard}
-              className="relative rounded-[30px] p-8"
+              className="relative rounded-[30px] p-6 md:p-14"
               style={{
                 background: "#0d0d0d",
                 boxShadow: tier.popular
@@ -88,8 +88,8 @@ export default function Pricing() {
                 </span>
                 <span className="text-white/40 text-sm">{tier.period}</span>
               </div>
-              <p className="text-white/50 text-sm mb-6">{tier.desc}</p>
-              <div className="space-y-3">
+              <p className="text-white/50 text-sm mb-10">{tier.desc}</p>
+              <div className="space-y-6">
                 {tier.features.map((f) => (
                   <div key={f} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-clario-accent/20 flex items-center justify-center flex-shrink-0">
@@ -107,13 +107,13 @@ export default function Pricing() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
-          className="mt-8 max-w-[800px] mx-auto"
+          className="mt-16 max-w-[800px] mx-auto"
         >
           <motion.div
             variants={fadeUpCard}
-            className="rounded-[30px] p-8 text-center"
+            className="rounded-[30px] p-6 md:p-14 text-center"
             style={{
               background: "#0d0d0d",
               boxShadow: "inset 0px 1px 0px 0px rgba(23,23,23,0.15), inset 0px -1px 0px 0px rgba(23,23,23,0.15), 0px 1px 2px 0px rgba(23,23,23,0.4), 0px 3px 8px 0px rgba(23,23,23,0.19), 0px 6px 4px 0px rgba(23,23,23,0.05)",

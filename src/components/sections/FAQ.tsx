@@ -13,11 +13,11 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-[20px] px-10">
+    <section className="py-[60px] md:py-[100px] px-5 md:px-10">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         variants={stagger}
         className="max-w-[800px] mx-auto"
       >
@@ -29,18 +29,18 @@ export default function FAQ() {
           <p className="text-white/40 text-sm mt-4">Here's everything you need to know before getting started.</p>
         </motion.div>
 
-        <div className="space-y-px">
+        <div className="space-y-0">
           {faqs.map((faq) => (
             <motion.div
               key={faq.n}
               variants={fadeUp}
-              className="py-6 border-t border-[#1a1a1a] last:border-b"
+              className="py-4 border-t border-[#1a1a1a] last:border-b"
             >
               <div className="flex items-start gap-6">
                 <span className="text-clario-accent text-sm font-medium font-mono pt-1">{faq.n}</span>
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-lg mb-2">{faq.q}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
+                  <h3 className="text-white font-semibold text-base mb-1">{faq.q}</h3>
+                  <p className="text-white/50 text-xs leading-relaxed">{faq.a}</p>
                 </div>
               </div>
             </motion.div>

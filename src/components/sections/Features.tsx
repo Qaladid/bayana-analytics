@@ -14,12 +14,12 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-[152px] px-10">
+    <section id="features" className="py-[60px] md:py-[100px] px-5 md:px-10">
       <div className="max-w-[1199px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="text-center mb-16"
         >
@@ -38,15 +38,15 @@ export default function Features() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {features.map((f) => (
             <motion.div
               key={f.title}
               variants={fadeUpCard}
-              className="rounded-[30px] p-8"
+              className="rounded-[30px] p-6 md:p-12"
               style={{
                 background: "#0d0d0d",
                 boxShadow:

@@ -27,7 +27,7 @@ const steps = [
 function StepMockup({ type }: { type: string }) {
   if (type === "card") {
     return (
-      <div className="w-full h-[300px] rounded-2xl p-5 bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] border border-[#2a3f10]">
+      <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] border border-[#2a3f10]">
         <div className="flex justify-between items-start mb-20">
           <span className="text-clario-accent text-xs font-semibold">CREDIT</span>
           <div className="w-8 h-6 rounded bg-[#0d0d0d]/50" />
@@ -39,7 +39,7 @@ function StepMockup({ type }: { type: string }) {
   }
   if (type === "chart") {
     return (
-      <div className="w-full h-[300px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
+      <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
         <div className="flex justify-between mb-4">
           <p className="text-white text-sm font-semibold">Balance</p>
           <p className="text-white/40 text-xs">Last 8 Months</p>
@@ -57,7 +57,7 @@ function StepMockup({ type }: { type: string }) {
     );
   }
   return (
-    <div className="w-full h-[300px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col justify-center">
+    <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col justify-center">
       <p className="text-white/40 text-xs mb-2">Daily Limit</p>
       <p className="text-white text-lg font-semibold mb-4">$2,500.00</p>
       <div className="w-full h-2 rounded-full bg-[#0d0d0d]">
@@ -70,12 +70,12 @@ function StepMockup({ type }: { type: string }) {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-[80px] px-10">
+    <section id="how-it-works" className="py-[60px] md:py-[100px] px-5 md:px-10">
       <div className="max-w-[1199px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="text-center mb-16"
         >
@@ -98,7 +98,7 @@ export default function HowItWorks() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-items-center"
         >

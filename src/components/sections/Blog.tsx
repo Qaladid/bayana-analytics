@@ -9,19 +9,19 @@ const posts = [
     desc: "Learn how to go from idea to launch — fast. We cover positioning, landing pages, early user feedback, and building trust using the Clario template for Framer.",
     href: "./blog/getting-started#post",
   },
-  { category: "Pro Tips", title: "Designing a Landing Page That Converts", href: "./blog/landing-page-design#post" },
-  { category: "Updates", title: "Collecting Feedback From Your First Users", href: "./blog/early-user-feedback#post" },
-  { category: "CMS", title: "Building Trust as an Early-Stage SaaS Brand", href: "./blog/building-trust#post" },
+  { category: "Pro Tips", title: "Designing a Landing Page That Converts", desc: "Your landing page is your storefront. Here's how to structure it for clarity, trust, and higher conversion rates — without sacrificing design quality.", href: "./blog/landing-page-design#post" },
+  { category: "Updates", title: "Collecting Feedback From Your First Users", desc: "Early user feedback is gold. Learn how to set up feedback loops, prioritize input, and turn it into meaningful product improvements.", href: "./blog/early-user-feedback#post" },
+  { category: "CMS", title: "Building Trust as an Early-Stage SaaS Brand", desc: "Trust is the hardest thing to earn — and the easiest to lose. Here's how early-stage brands can build credibility from day one.", href: "./blog/building-trust#post" },
 ];
 
 export default function Blog() {
   return (
-    <section className="py-[250px] px-10">
+    <section className="py-[60px] md:py-[100px] px-5 md:px-10">
       <div className="max-w-[1199px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="flex items-center justify-between mb-12"
         >
@@ -40,9 +40,9 @@ export default function Blog() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {posts.map((post) => (
             <motion.a
@@ -56,17 +56,17 @@ export default function Blog() {
               }}
             >
               {/* Image placeholder */}
-              <div className="w-full h-[280px] bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] flex items-center justify-center">
+              <div className="w-full h-[280px] md:h-[540px] bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-clario-accent/20 flex items-center justify-center">
                   <span className="text-clario-accent text-xs font-bold">{post.category.slice(0, 2).toUpperCase()}</span>
                 </div>
               </div>
-              <div className="p-5">
+              <div className="p-8">
                 <p className="text-clario-accent text-xs font-medium uppercase tracking-widest mb-2">{post.category}</p>
-                <h3 className="text-white font-semibold text-base mb-2 group-hover:text-clario-accent transition-colors">
+                <h3 className="text-white font-semibold text-base mb-3 group-hover:text-clario-accent transition-colors">
                   {post.title}
                 </h3>
-                {post.desc && <p className="text-white/40 text-xs leading-relaxed">{post.desc}</p>}
+                {post.desc && <p className="text-white/40 text-sm leading-[22px]">{post.desc}</p>}
               </div>
             </motion.a>
           ))}

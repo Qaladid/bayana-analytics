@@ -38,7 +38,7 @@ export default function Navbar() {
       {/* Buttons */}
       <motion.div variants={fadeUpSmall} className="hidden md:flex items-center gap-3">
         <Button variant="outline" href="#waitlist">Waitlist</Button>
-        <Button variant="filled" href="#contact">Contact</Button>
+        <Button variant="filled" href="#contact" compact>Contact</Button>
       </motion.div>
 
       {/* Mobile menu button */}

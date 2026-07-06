@@ -109,6 +109,18 @@ Structural-phase copy MUST match this byte-for-byte. These strings are the accep
 ### 2.4 Settled-state check
 - After 10s, every animated element must be at final state (opacity 1, transform none). Stuck mid-animation = fail.
 
+### 2.5 Repeat-trigger scroll animation (PERMANENT test case — binding)
+Live Clario replays the fade-in animation **every time** a section re-enters the viewport on scroll — not just the first time. The clone MUST match this. `viewport={{once:true}}` (Framer Motion) breaks this behavior; `once:false` (the Framer default) is required on all scroll-triggered motion components.
+- **Test method (every round, all 3 viewports):**
+  1. Scroll a section (How-it-works cards, Features, Pricing, FAQ, Blog) fully OUT of the viewport (above the top or below the bottom).
+  2. Scroll it back INTO view.
+  3. Assert the fade-in animation REPLAYS (opacity goes 1 → 0 → 1, transform y-offset resets and animates back to 0). Record via frame capture or `getComputedStyle` opacity/transform polling during re-entry.
+  4. Repeat the out→in cycle 3× per section — the animation must replay EVERY time, not just the first.
+- **Pass:** every scroll-triggered section replays its fade on every re-entry, on both scroll-down and scroll-up.
+- **Fail (BLOCKER):** section fades in only the first time and stays static on subsequent re-entries (the `once:true` bug); OR animation does not replay; OR section flickers/jumps instead of fading.
+- **Static gate:** `grep -rn "once:\s*true" src/` returns 0 matches. Any `once:true` on a scroll-triggered motion component is an automatic BLOCKER.
+- **Confirm against live Clario:** open https://clario.framer.website/, scroll a section out of view and back — the fade replays each time. The clone must reproduce this exactly.
+
 ---
 
 ## 3. Content-Exactness-During-Structure-Phase

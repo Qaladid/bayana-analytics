@@ -14,7 +14,7 @@ const VPS = [
   for (const vp of VPS) {
     const ctx = await b.newContext({ viewport: { width: vp.w, height: vp.h } });
     const p = await ctx.newPage();
-    await p.goto(URL, { waitUntil: 'networkidle', timeout: 30000 });
+    await p.goto(URL, { waitUntil: 'load', timeout: 60000 });
     await p.waitForTimeout(3000);
     const f = path.join(SHOT, `${vp.name}_settled.png`);
     await p.screenshot({ path: f, fullPage: true });

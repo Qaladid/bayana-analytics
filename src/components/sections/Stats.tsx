@@ -4,11 +4,11 @@ import { stagger, fadeUp } from "@/lib/tokens";
 
 export default function Stats() {
   return (
-    <section className="py-[185px] px-10">
+    <section className="py-[60px] md:py-[100px] px-5 md:px-10">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         variants={stagger}
         className="max-w-[1000px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12"
       >

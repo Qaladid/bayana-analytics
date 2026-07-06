@@ -21,12 +21,12 @@ const clario = [
 
 export default function Comparison() {
   return (
-    <section className="py-[50px] px-10">
+    <section className="py-[60px] md:py-[120px] px-5 md:px-10">
       <div className="max-w-[1000px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="text-center mb-16"
         >
@@ -45,7 +45,7 @@ export default function Comparison() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >

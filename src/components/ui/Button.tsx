@@ -7,10 +7,12 @@ type ButtonProps = {
   variant?: "filled" | "outline" | "dark";
   href?: string;
   className?: string;
+  compact?: boolean;
 };
 
-export default function Button({ children, variant = "filled", href = "#", className = "" }: ButtonProps) {
-  const base = "inline-flex items-center justify-center gap-2 rounded-[23px] px-6 py-3 text-[15px] font-semibold transition-all";
+export default function Button({ children, variant = "filled", href = "#", className = "", compact = false }: ButtonProps) {
+  const padX = compact ? "px-[24px]" : variant === "filled" ? "px-[27px]" : "px-[24px]";
+  const base = `inline-flex items-center justify-center gap-2 rounded-[23px] ${padX} py-3 text-[15px] font-semibold transition-all`;
   const variants = {
     filled: "bg-clario-accent text-[#0d0d0d] shadow-cta hover:brightness-110",
     outline: "bg-clario-border text-white hover:bg-[#2a2a2a]",

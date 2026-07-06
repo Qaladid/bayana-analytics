@@ -6,7 +6,7 @@ import HeroMockup from "@/components/ui/HeroMockup";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col items-center pt-[157px] pb-[790px] px-10 overflow-hidden">
+    <section className="relative flex flex-col items-center pt-[120px] md:pt-[166px] pb-[60px] md:pb-[80px] px-5 md:px-10 overflow-hidden">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -25,13 +25,12 @@ export default function Hero() {
         {/* Headline — positioned so y ≈ 202 (badge ~140px tall + 0 gap) */}
         <motion.h1
           variants={fadeUp}
-          className="text-white font-medium text-center"
+          className="text-white font-medium text-center text-[36px] md:text-[64px]"
           style={{
-            fontSize: "64px",
             letterSpacing: "-2.56px",
-            lineHeight: "64px",
+            lineHeight: "1",
             maxWidth: "720px",
-            marginTop: "0px",
+            marginTop: "40px",
           }}
         >
           Take control of your finances — with clarity
@@ -40,7 +39,7 @@ export default function Hero() {
         {/* Subheadline */}
         <motion.p
           variants={fadeUpSmall}
-          className="mt-6 text-center"
+          className="mt-6 md:mt-10 text-center"
           style={{
             fontSize: "18px",
             fontWeight: 400,
@@ -53,7 +52,7 @@ export default function Hero() {
         </motion.p>
 
         {/* CTA */}
-        <motion.div variants={fadeUpTiny} className="mt-8">
+        <motion.div variants={fadeUpTiny} className="mt-8 md:mt-14">
           <Button variant="filled" href="#get-started">Get Started Free</Button>
         </motion.div>
       </motion.div>
@@ -63,7 +62,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-16 w-full max-w-[978px]"
+        className="mt-[60px] md:mt-[100px] w-full max-w-[978px]"
       >
         <HeroMockup />
       </motion.div>

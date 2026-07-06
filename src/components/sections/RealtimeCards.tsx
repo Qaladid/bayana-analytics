@@ -28,7 +28,7 @@ const cards = [
 function CardMockup({ type }: { type: string }) {
   if (type === "dashboard") {
     return (
-      <div className="w-full h-[280px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
+      <div className="w-full h-[200px] md:h-[370px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
         <p className="text-white text-sm font-semibold mb-4">All Accounts</p>
         <div className="space-y-2">
           {["Checking", "Savings", "Credit"].map((acc, i) => (
@@ -43,7 +43,7 @@ function CardMockup({ type }: { type: string }) {
   }
   if (type === "cashflow") {
     return (
-      <div className="w-full h-[280px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
+      <div className="w-full h-[200px] md:h-[370px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
         <div className="flex justify-between mb-4">
           <p className="text-white text-sm font-semibold">Cashflow</p>
           <p className="text-white/40 text-xs">Last 7 Days</p>
@@ -57,7 +57,7 @@ function CardMockup({ type }: { type: string }) {
   }
   if (type === "donut") {
     return (
-      <div className="w-full h-[280px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col items-center justify-center">
+      <div className="w-full h-[200px] md:h-[370px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col items-center justify-center">
         <svg width="120" height="120" viewBox="0 0 120 120">
           <circle cx="60" cy="60" r="45" fill="none" stroke="#8cff2e" strokeWidth="15" strokeDasharray="120 283" transform="rotate(-90 60 60)" />
           <circle cx="60" cy="60" r="45" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="15" strokeDasharray="80 283" strokeDashoffset="-120" transform="rotate(-90 60 60)" />
@@ -69,7 +69,7 @@ function CardMockup({ type }: { type: string }) {
     );
   }
   return (
-    <div className="w-full h-[280px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col justify-center">
+    <div className="w-full h-[200px] md:h-[370px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col justify-center">
       <div className="flex justify-between mb-2">
         <p className="text-white text-sm font-semibold">Vacation Fund</p>
         <p className="text-clario-accent text-xs">$3,000 / $5,000</p>
@@ -89,12 +89,12 @@ function CardMockup({ type }: { type: string }) {
 
 export default function RealtimeCards() {
   return (
-    <section className="py-[250px] px-10">
+    <section className="py-[60px] md:py-[100px] px-5 md:px-10">
       <div className="max-w-[1199px] mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
           className="text-center mb-12"
         >
@@ -116,9 +116,9 @@ export default function RealtimeCards() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {cards.map((card) => (
             <motion.div

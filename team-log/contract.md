@@ -57,9 +57,11 @@ Clone the Clario landing page EXACTLY — animation, content, font, styling, eve
 
 ### A5. Animation
 - [ ] Entrance: Framer Motion stagger (hero badge→h1→subhead→CTA), `data-framer-appear-id`-equivalent initial transforms y:20/12/10→0.
-- [ ] Step cards: `whileInView`, y:40→0, stagger 0.12, `viewport={{once:true}}`.
-- [ ] Scroll-triggered fades on Features/Pricing/FAQ/Blog.
+- [ ] Step cards: `whileInView`, y:40→0, stagger 0.12, `viewport={{once:false}}` — **re-triggers on every viewport entry, NOT only the first.**
+- [ ] Scroll-triggered fades on Features/Pricing/FAQ/Blog — all `viewport={{once:false}}` so the fade-in replays every time a section re-enters the viewport on scroll up OR down. Live Clario replays the fade on every re-entry; the clone MUST match this. Do NOT use `once:true` anywhere on scroll-triggered animations.
+- [ ] **Repeat-trigger verification (binding):** scrolling a section out of view and back in MUST replay the fade-in animation. This is a permanent acceptance criterion, not first-load-only timing.
 - [ ] **Timing retune:** if evaluator round-1 shows >0.1s drift from Clario's real ms timings (captured in A1), builder retunes to match live, not the doc defaults.
+- [ ] **No `once:true` anywhere** in scroll-triggered motion components — `grep -rn "once: true" src/` must return 0 matches before ACCEPT.
 
 ### A6. Anti-premature-swap gate (structural phase)
 - [ ] Before structural ACCEPT: zero grep matches for `teal|hospital|pharmacy|Bayana|Bayana Analytics|0F6E5C|1D4ED8` anywhere in `src/`.

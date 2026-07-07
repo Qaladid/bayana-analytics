@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
 import Sidebar from '@/components/dashboard/Sidebar'
+import ChatWidget from '@/components/ui/ChatWidget'
 
 export default async function DashboardLayout({
   children,
@@ -49,6 +50,9 @@ export default async function DashboardLayout({
         {/* Page content */}
         <main className="flex-1 overflow-auto p-8">{children}</main>
       </div>
+
+      {/* Floating AI chat widget — visible on all dashboard pages */}
+      <ChatWidget />
     </div>
   )
 }

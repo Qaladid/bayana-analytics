@@ -20,7 +20,7 @@ export default function ChatWidget() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://onrender.com", {
+      const res = await fetch("https:/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMsg.content, sessionId }),

@@ -9,3 +9,4 @@ out/
 .next/
 node_modules/
 .env.local
+.vercel

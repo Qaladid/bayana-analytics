@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { stagger, fadeUp, fadeUpCard } from "@/lib/tokens";
 import { Check } from "lucide-react";
 
 const tiers = [
   {
     name: "Starter",
-    price: "$29",
+    price: "$70",
     period: "/month",
     desc: "Perfect for single-branch clinics who want full control over their hospital data.",
     features: ["Track stock, visits & revenue", "Connected to 2 branches", "Monthly reports", "Low-stock alerts"],
@@ -14,7 +15,7 @@ const tiers = [
   },
   {
     name: "Pro",
-    price: "$49",
+    price: "$200",
     period: "/month",
     desc: "Advanced tools to manage your hospital data smarter and unlock powerful insights.",
     features: ["Unlimited branches", "AI chatbot for your data", "Custom alerts", "Advanced reporting"],
@@ -99,6 +100,12 @@ export default function Pricing() {
                   </div>
                 ))}
               </div>
+              <Link
+                href="/auth/login"
+                className="mt-10 flex items-center justify-center gap-2 rounded-[23px] px-6 py-3 text-[15px] font-semibold transition-all bg-clario-accent text-[#0d0d0d] hover:brightness-110 w-full"
+              >
+                Get Started
+              </Link>
             </motion.div>
           ))}
         </motion.div>

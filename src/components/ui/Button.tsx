@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -30,5 +31,5 @@ export default function Button({ children, variant = "filled", href = "#", class
     </motion.span>
   );
 
-  return <a href={href}>{content}</a>;
+  return <Link href={href}>{content}</Link>;
 }

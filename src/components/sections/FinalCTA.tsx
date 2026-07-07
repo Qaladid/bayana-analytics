@@ -24,7 +24,7 @@ export default function FinalCTA() {
           Upload your Excel exports and get a live dashboard in minutes — no setup, no spreadsheets.
         </motion.p>
         <motion.div variants={fadeUp}>
-          <Button variant="filled" href="#get-started">Get Started Free</Button>
+          <Button variant="filled" href="/auth/login">Get Started Free</Button>
         </motion.div>
       </motion.div>
     </section>

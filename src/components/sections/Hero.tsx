@@ -53,7 +53,7 @@ export default function Hero() {
 
         {/* CTA */}
         <motion.div variants={fadeUpTiny} className="mt-8 md:mt-14">
-          <Button variant="filled" href="#get-started">Get Started Free</Button>
+          <Button variant="filled" href="/auth/login">Get Started Free</Button>
         </motion.div>
       </motion.div>
 

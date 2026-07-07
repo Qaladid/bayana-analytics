@@ -3,6 +3,7 @@ import logging
 import os
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from adal_agent_sdk import AdalAgentOptions, query
 
@@ -14,6 +15,18 @@ WORKSPACE = "/app"
 SYSTEM_PROMPT_PATH = os.path.join(WORKSPACE, "system_prompt.txt")
 
 app = FastAPI(title="Bayana AI Service")
+
+# Enable CORS for your Vercel frontend app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://vercel.app",
+        "http://localhost:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ChatRequest(BaseModel):

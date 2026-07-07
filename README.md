@@ -9,6 +9,13 @@ Bayana Analytics is a multi-tenant healthcare analytics dashboard that lets medi
 - **Live demo:** https://bayana-analytics.vercel.app
 - **Repository:** https://github.com/Qaladid/bayana-analytics
 
+## Test Credentials
+
+Email: abditajr143@gmail.com
+Password: [insert password manually]
+
+This account has seeded demo data (stock levels, patient visits, and revenue sourced from a real hospital analytics project) already populated in Supabase for org_id `68ff7230-038a-4708-b1da-cf3c471d21a4`.
+
 ## 3. Tech Stack & Architecture
 
 | Layer | Technology |
@@ -94,15 +101,32 @@ The AI assistant is governed by a single system prompt attached to every session
 
 It also covers tone handling and a "no fabrication under data gaps" rule. See [`GUARDRAILS.md`](GUARDRAILS.md) for the full text of each rule.
 
-## 8. Known Limitations
+## 8. Current State / Known Issues
 
-These are honest gaps in the current state of the repo, not aspirational roadmap items:
+This section is an honest snapshot of what works, what's simulated, and what's still open — not a roadmap. Nothing here is rounded up to "done."
 
-- **No automated test suite.** Playwright is listed as a dev dependency, but there is no `test` script in `package.json` and no runnable test suite is wired up. [`team-log/test_plan.md`](team-log/test_plan.md) exists as a plan only.
-- **No CI/CD pipeline.** Outside of Vercel's build-on-push, there are no GitHub Actions or other CI workflows running lint, tests, or checks.
-- **No Lighthouse / accessibility audit performed.** No audit results are checked in; a11y and performance baselines have not been formally measured.
+### Fully working end-to-end
+
+- **Authentication with fail-closed middleware.** [`src/middleware.ts`](src/middleware.ts) guards every `/dashboard` route using the Supabase SSR client; unauthenticated users are redirected to `/auth/login` and session tokens are refreshed on each request. There is no unprotected path into the dashboard.
+- **Dashboard reading live Supabase data.** The revenue, stock, and visits pages ([`src/app/dashboard/`](src/app/dashboard/)) fetch live rows from Supabase scoped by `org_id` and render them with Recharts.
+- **AI assistant via Adal Cloud.** [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts) resolves the caller's `org_id` server-side, opens an Adal Cloud session, streams the SSE response, and returns the completed assistant message — gated behind the auth check so unauthenticated requests never reach the model.
+
+### Simulated or manual rather than fully automated
+
 - **Stripe paywall is simulated via Supabase, not live Stripe.** The `subscriptions` table tracks status, but the Stripe SDK is not installed (`package.json` has no `stripe` dependency) and the Stripe env vars in `.env.local` are commented out. Billing tiers are shown in the UI ([`src/components/sections/Pricing.tsx`](src/components/sections/Pricing.tsx)) but no live payment flow is wired.
-- **No automated Excel-upload-to-Supabase sync.** Revenue data was seeded manually from Darusalam's DuckDB data mart for demo purposes; there is no pipeline that ingests uploaded Excel files into Supabase automatically yet.
+- **Revenue data seeded manually.** Revenue rows were seeded manually from Darusalam's DuckDB data mart export for demo purposes; there is no automated Excel-upload-to-Supabase sync pipeline yet.
+
+### Not yet implemented or still under verification
+
+- **Automated test suite.** Playwright is listed as a dev dependency, but there is no `test` script in `package.json` and no runnable test suite is wired up. [`team-log/test_plan.md`](team-log/test_plan.md) exists as a plan only.
+- **CI/CD pipeline.** Outside of Vercel's build-on-push, there are no GitHub Actions or other CI workflows running lint, tests, or checks.
+- **Lighthouse / accessibility audit.** No audit results are checked in; a11y and performance baselines have not been formally measured.
+- **Landing page CTA buttons.** The "Get Started Free" buttons in [`Hero.tsx`](src/components/sections/Hero.tsx) and [`FinalCTA.tsx`](src/components/sections/FinalCTA.tsx) point to the anchor `#get-started` rather than `/auth/login`, so they scroll the page instead of routing to sign-in.
+- **Dashboard KPI cards.** [`OverviewContent.tsx`](src/components/dashboard/OverviewContent.tsx) still contains `[DEBUG] console.log("[KPI] ...")` statements at lines 21, 30, 40, 47, and 54, indicating the KPI fetch is under active investigation and not yet considered stable.
+
+### Data connectors — current and planned
+
+The SaaS currently ships with **one connector: the Excel upload**. We are adding direct connectors to HMIS systems such as **PharmaCore**. Once the data pipeline work is complete, the PharmaCore connector will be ready, and hospitals already running that system will be able to connect their HMIS to Bayana Analytics after payment — no manual export/import step required. Until then, data flows through the Excel connector or manual seeding.
 
 ## 9. AdaL Workflow Note
 

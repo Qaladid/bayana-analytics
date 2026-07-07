@@ -72,7 +72,7 @@ ADAL_AGENT_ID=
 
 ## 5. Deployment
 
-The app is hosted on **Vercel**, connected to this GitHub repository for continuous deployment on push to `main`. Environment variables (Supabase, Adal Cloud, app URL) are configured in the Vercel project settings under Settings → Environment Variables. No CI/CD pipeline runs outside of Vercel's built-in build-on-push.
+The repository is configured on **Vercel** and linked to this GitHub repo, so **every commit and push automatically triggers a new deployment** — no manual build or deploy step. Environment variables (Supabase, Adal Cloud, app URL) are configured in the Vercel project settings under Settings → Environment Variables. No CI/CD pipeline runs outside of Vercel's built-in build-on-push.
 
 ## 6. Database Schema
 

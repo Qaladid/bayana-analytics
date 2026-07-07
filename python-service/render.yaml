@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bayana-ai-service
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: ADAL_AUTH_TOKEN
+        sync: false

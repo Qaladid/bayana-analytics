@@ -1,12 +1,10 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { LogIn, Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -29,9 +27,12 @@ export default function LoginPage() {
       return;
     }
 
-    // Session established — middleware will validate and allow /dashboard
-    router.push("/dashboard");
-    router.refresh();
+    // Session established — use a full-page navigation so the browser sends
+    // the fresh session cookie with a new request, middleware re-validates,
+    // and server components render with the correct session.
+    // client-side router.push() + router.refresh() is racy in App Router
+    // and causes a 404 because refresh() fires against the in-flight push.
+    window.location.href = "/dashboard";
   }
 
   return (

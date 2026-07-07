@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 
+// Extend Vercel function timeout to 60s — AdaL SDK + Render cold start needs it
+export const maxDuration = 60;
+
 const CHAT_SERVICE_URL = process.env.CHAT_SERVICE_URL!;
 
 export async function POST(req: NextRequest) {

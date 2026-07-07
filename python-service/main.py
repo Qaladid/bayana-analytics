@@ -45,13 +45,20 @@ def health():
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
+    # options = AdalAgentOptions(
+    #     workspace=WORKSPACE,
+    #     auth_token=ADAL_AUTH_TOKEN,
+    #     permission_mode="yolo",
+    #     # Lock the agent to custom tools only — no file/web/bash access
+    #     disabled_default_tools=["Bash", "Edit", "Read", "Search", "Web", "Image", "Video", "Consult"],
+    #     prompt_file=SYSTEM_PROMPT_PATH,
+    # )
+
     options = AdalAgentOptions(
-        workspace=WORKSPACE,
-        auth_token=ADAL_AUTH_TOKEN,
-        permission_mode="yolo",
-        # Lock the agent to custom tools only — no file/web/bash access
-        disabled_default_tools=["Bash", "Edit", "Read", "Search", "Web", "Image", "Video", "Consult"],
-        prompt_file=SYSTEM_PROMPT_PATH,
+    workspace=WORKSPACE,
+    auth_token=ADAL_AUTH_TOKEN,
+    permission_mode="yolo",
+    prompt_file=SYSTEM_PROMPT_PATH,
     )
 
     # Inject org_id into the prompt so the agent always passes it to tools

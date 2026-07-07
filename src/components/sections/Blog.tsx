@@ -4,14 +4,14 @@ import { stagger, fadeUp, fadeUpCard } from "@/lib/tokens";
 
 const posts = [
   {
-    category: "Basics",
-    title: "How to Launch Your SaaS Product With Confidence",
-    desc: "Learn how to go from idea to launch — fast. We cover positioning, landing pages, early user feedback, and building trust using the Clario template for Framer.",
-    href: "./blog/getting-started#post",
+    category: "Case Study",
+    title: "From Excel Chaos to Clarity: A Case Study",
+    desc: "How a Nairobi clinic replaced monthly spreadsheets with a live dashboard — and cut reporting time by 80%.",
+    href: "./blog/excel-to-clarity#post",
   },
-  { category: "Pro Tips", title: "Designing a Landing Page That Converts", desc: "Your landing page is your storefront. Here's how to structure it for clarity, trust, and higher conversion rates — without sacrificing design quality.", href: "./blog/landing-page-design#post" },
-  { category: "Updates", title: "Collecting Feedback From Your First Users", desc: "Early user feedback is gold. Learn how to set up feedback loops, prioritize input, and turn it into meaningful product improvements.", href: "./blog/early-user-feedback#post" },
-  { category: "CMS", title: "Building Trust as an Early-Stage SaaS Brand", desc: "Trust is the hardest thing to earn — and the easiest to lose. Here's how early-stage brands can build credibility from day one.", href: "./blog/building-trust#post" },
+  { category: "Pharmacy", title: "5 Signs Your Pharmacy Needs a Data Dashboard", desc: "Stockouts, manual re-entry, stale reports — here are the warning signs it's time to move beyond Excel.", href: "./blog/pharmacy-dashboard#post" },
+  { category: "Hospitals", title: "How Nairobi Hospitals Are Ditching Spreadsheets", desc: "More hospitals are trading Excel for real-time dashboards. Here's what changed for their teams.", href: "./blog/ditching-spreadsheets#post" },
+  { category: "Stock", title: "Why Real-Time Stock Visibility Matters", desc: "Knowing your stock levels in real time prevents stockouts, waste, and lost revenue — here's how.", href: "./blog/real-time-stock#post" },
 ];
 
 export default function Blog() {
@@ -56,7 +56,7 @@ export default function Blog() {
               }}
             >
               {/* Image placeholder */}
-              <div className="w-full h-[280px] md:h-[540px] bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] flex items-center justify-center">
+              <div className="w-full h-[280px] md:h-[540px] bg-gradient-to-br from-[#0B1220] to-[#0d0d0d] flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-clario-accent/20 flex items-center justify-center">
                   <span className="text-clario-accent text-xs font-bold">{post.category.slice(0, 2).toUpperCase()}</span>
                 </div>

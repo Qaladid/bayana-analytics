@@ -19,7 +19,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0d0d0d] border border-[#1f1f1f]"
         >
           <span className="w-2 h-2 rounded-full bg-clario-accent" />
-          <span className="text-sm text-white/80 font-medium">All-in-One Finance Toolkit</span>
+          <span className="text-sm text-white/80 font-medium">Hospital Data Pipeline</span>
         </motion.div>
 
         {/* Headline — positioned so y ≈ 202 (badge ~140px tall + 0 gap) */}
@@ -33,7 +33,7 @@ export default function Hero() {
             marginTop: "40px",
           }}
         >
-          Take control of your finances — with clarity
+          Turn messy hospital data into clarity — instantly
         </motion.h1>
 
         {/* Subheadline */}
@@ -48,7 +48,7 @@ export default function Hero() {
             maxWidth: "540px",
           }}
         >
-          All your money insights, finally in one place — track income, spending, and reach your goals with ease.
+          Upload your Excel exports and get a live dashboard of stock, patient visits, and revenue — no spreadsheets, no guesswork.
         </motion.p>
 
         {/* CTA */}

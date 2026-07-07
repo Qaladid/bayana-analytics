@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 import { stagger, fadeUp } from "@/lib/tokens";
 
 const faqs = [
-  { n: "01", q: "What kind of businesses is this template built for?", a: "Clario is designed for SaaS tools, dashboards, fintech platforms, or any digital product that needs a modern, conversion-focused landing page. It's fully customizable to fit a wide range of web-based services." },
-  { n: "02", q: "Is the template mobile-friendly and responsive?", a: "Absolutely. The layout adapts beautifully to all screen sizes, including desktops, tablets, and smartphones. Every section is designed to deliver a seamless experience across devices." },
-  { n: "03", q: "Can I use this template without coding skills?", a: "Yes — the template is fully editable in Framer with drag-and-drop tools. No coding knowledge is required to update text, swap images, or adjust layouts." },
-  { n: "04", q: "Will I get access to future updates?", a: "Yes. Once purchased, you'll automatically receive any future improvements or optimizations we make to the template. Your version stays up-to-date with best practices." },
-  { n: "05", q: "Can I use this template for commercial projects?", a: "Definitely. Clario is licensed for both personal and commercial use, so you can build client websites or launch your own product without any licensing issues." },
-  { n: "06", q: "How can I get support if I run into issues?", a: "We're here to help. If you have questions, you can reach us directly at hello@kadirov.design. We usually respond within 24 hours." },
+  { n: "01", q: "What kind of businesses is Bayana built for?", a: "Bayana is built for hospital and pharmacy SMEs in Nairobi who are tracking stock, patient visits, and revenue in Excel and want it in one live dashboard instead." },
+  { n: "02", q: "Do I need to reformat my Excel files?", a: "No — Bayana is built around the exact Excel format hospitals already use. Just upload your monthly file." },
+  { n: "03", q: "Can I ask questions about my own data?", a: "Yes — Bayana includes a chatbot that answers questions about your stock, visits, and revenue in plain English." },
+  { n: "04", q: "Is my data secure?", a: "Yes — each organization's data is isolated and only accessible to your team." },
+  { n: "05", q: "Can I use this across multiple branches?", a: "Yes — Bayana supports multiple branches under one organization from day one." },
 ];
 
 export default function FAQ() {

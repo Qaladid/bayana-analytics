@@ -10,8 +10,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Clario – Finance Dashboard Template for Framer",
-  description: "All your money insights, finally in one place",
+  title: "Bayana Analytics – Live Dashboards for Hospital & Pharmacy Data",
+  description: "Turn your hospital or pharmacy's Excel exports into a live, queryable dashboard — built for Nairobi SMEs.",
 };
 
 export default function RootLayout({

@@ -4,18 +4,18 @@ import { stagger, fadeUp } from "@/lib/tokens";
 import { X, Check } from "lucide-react";
 
 const otherTools = [
-  "Messy spreadsheets, manual tracking",
-  "Complicated pricing, hidden fees",
-  "Limited automation, manual workflows",
-  "No team collaboration",
-  "Generic support, slow replies",
+  "Messy Excel exports, manual re-entry every month",
+  "No real-time visibility, stale monthly reports",
+  "No cross-branch visibility, siloed data",
+  "No way to ask questions of your data",
+  "Stockouts caught too late, reactive ordering",
 ];
 
 const clario = [
   "Smart dashboard, real-time updates",
   "Simple, transparent pricing",
-  "Automated reports & smart alerts",
-  "Team-friendly, sync accounts easily",
+  "Automated reports & low-stock alerts",
+  "Team-friendly, syncs branches easily",
   "Priority support, fast response",
 ];
 
@@ -31,14 +31,14 @@ export default function Comparison() {
           className="text-center mb-16"
         >
           <motion.p variants={fadeUp} className="text-clario-accent text-sm font-medium uppercase tracking-widest mb-4">
-            Why Clario?
+            Why Bayana?
           </motion.p>
           <motion.h2
             variants={fadeUp}
             className="text-white font-medium"
             style={{ fontSize: "48px", letterSpacing: "-1.92px", lineHeight: "56px" }}
           >
-            There&rsquo;s a smarter way to manage money
+            There&rsquo;s a smarter way to manage hospital data
           </motion.h2>
         </motion.div>
 
@@ -64,7 +64,7 @@ export default function Comparison() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="rounded-[30px] p-8 bg-clario-accent/5 border border-clario-accent/20">
-            <h3 className="text-clario-accent font-semibold text-lg mb-6">Clario</h3>
+            <h3 className="text-clario-accent font-semibold text-lg mb-6">Bayana</h3>
             <div className="space-y-4">
               {clario.map((item) => (
                 <div key={item} className="flex items-start gap-3">

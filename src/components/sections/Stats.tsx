@@ -16,21 +16,20 @@ export default function Stats() {
           <div className="flex items-center gap-2 mb-3">
             <div className="flex -space-x-2">
               {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-clario-accent to-[#5a9e1e] border-2 border-[#050505]" />
+                <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-clario-accent to-[#3B82F6] border-2 border-[#050505]" />
               ))}
             </div>
           </div>
-          <p className="text-white text-2xl font-semibold">Trusted by 3k+ Freelancers</p>
+          <p className="text-white text-2xl font-semibold">Built for Nairobi hospital & pharmacy SMEs</p>
         </motion.div>
 
         <motion.div variants={fadeUp} className="text-center">
           <p className="text-clario-accent text-5xl font-medium" style={{ letterSpacing: "-2px" }}>
-            $1.2M+ Saved
           </p>
         </motion.div>
 
         <motion.p variants={fadeUp} className="text-white/50 text-base max-w-[300px] text-center md:text-left">
-          Clario helps users save more — and spend smarter.
+          Bayana turns hospital Excel exports into live, queryable dashboards.
         </motion.p>
       </motion.div>
     </section>

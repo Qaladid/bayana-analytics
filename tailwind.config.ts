@@ -11,7 +11,7 @@ const config: Config = {
         clario: {
           bg: "#050505",
           dark: "#0d0d0d",
-          accent: "#8cff2e",
+          accent: "#1D4ED8",
           white: "#ffffff",
           offwhite: "#f8f8fa",
           surface: "#f5f5f2",

@@ -17,9 +17,9 @@ export default function Navbar() {
       {/* Logo */}
       <motion.a href="#" variants={fadeUpSmall} className="flex items-center gap-2">
         <div className="w-7 h-7 rounded-lg bg-clario-accent flex items-center justify-center">
-          <span className="text-[#0d0d0d] font-bold text-sm">C</span>
+          <span className="text-[#0d0d0d] font-bold text-sm">B</span>
         </div>
-        <span className="text-white text-lg font-semibold tracking-tight">Clario</span>
+        <span className="text-white text-lg font-semibold tracking-tight">Bayana</span>
       </motion.a>
 
       {/* Nav links */}

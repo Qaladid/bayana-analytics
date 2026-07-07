@@ -6,20 +6,20 @@ import { Play } from "lucide-react";
 const steps = [
   {
     n: "Step 1",
-    title: "Connect your accounts",
-    desc: "Sync all your bank accounts, credit cards, and wallets — securely and instantly.",
+    title: "Upload your Excel",
+    desc: "Drop in your monthly stock, visits, and revenue exports — no reformatting needed.",
     mockup: "card",
   },
   {
     n: "Step 2",
-    title: "Track your money",
-    desc: "See where your money goes with real-time spending insights and clear breakdowns.",
+    title: "Get your dashboard",
+    desc: "See stock, visits, and revenue in real time, broken down by branch.",
     mockup: "chart",
   },
   {
     n: "Step 3",
-    title: "Set goals & stay on track",
-    desc: "Plan your savings, set monthly budgets, and let Clario keep you in control.",
+    title: "Ask your data",
+    desc: "Ask questions in plain English — from stock trends to daily revenue — and get instant answers.",
     mockup: "progress",
   },
 ];
@@ -27,9 +27,9 @@ const steps = [
 function StepMockup({ type }: { type: string }) {
   if (type === "card") {
     return (
-      <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] border border-[#2a3f10]">
+      <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-gradient-to-br from-[#0B1220] to-[#0d0d0d] border border-[#131C2E]">
         <div className="flex justify-between items-start mb-20">
-          <span className="text-clario-accent text-xs font-semibold">CREDIT</span>
+          <span className="text-clario-accent text-xs font-semibold">BRANCH</span>
           <div className="w-8 h-6 rounded bg-[#0d0d0d]/50" />
         </div>
         <p className="text-white text-2xl font-semibold">$430,000</p>
@@ -41,24 +41,24 @@ function StepMockup({ type }: { type: string }) {
     return (
       <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f]">
         <div className="flex justify-between mb-4">
-          <p className="text-white text-sm font-semibold">Balance</p>
+          <p className="text-white text-sm font-semibold">Today's Revenue</p>
           <p className="text-white/40 text-xs">Last 8 Months</p>
         </div>
         <svg viewBox="0 0 280 220" className="w-full h-[220px]">
           <polyline
             points="0,180 40,160 80,170 120,140 160,150 200,120 240,130 280,100"
             fill="none"
-            stroke="#8cff2e"
+            stroke="#1D4ED8"
             strokeWidth="2"
           />
-          <circle cx="280" cy="100" r="4" fill="#8cff2e" />
+          <circle cx="280" cy="100" r="4" fill="#1D4ED8" />
         </svg>
       </div>
     );
   }
   return (
     <div className="w-full h-[220px] md:h-[340px] rounded-2xl p-5 bg-[#171717] border border-[#1f1f1f] flex flex-col justify-center">
-      <p className="text-white/40 text-xs mb-2">Daily Limit</p>
+      <p className="text-white/40 text-xs mb-2">Stock Capacity</p>
       <p className="text-white text-lg font-semibold mb-4">$2,500.00</p>
       <div className="w-full h-2 rounded-full bg-[#0d0d0d]">
         <div className="h-full rounded-full bg-clario-accent" style={{ width: "12.5%" }} />
@@ -91,7 +91,7 @@ export default function HowItWorks() {
             className="text-white font-medium"
             style={{ fontSize: "48px", letterSpacing: "-1.92px", lineHeight: "56px" }}
           >
-            How Clario works
+            How Bayana works
           </motion.h2>
         </motion.div>
 

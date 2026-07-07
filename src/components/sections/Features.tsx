@@ -4,11 +4,11 @@ import { stagger, fadeUp, fadeUpCard } from "@/lib/tokens";
 import { Wallet, Target, Tag, Mail, AlertCircle, Shield } from "lucide-react";
 
 const features = [
-  { icon: Wallet, title: "Multi-account sync", desc: "Connect and track all your bank accounts in one place." },
-  { icon: Target, title: "Goal tracking", desc: "Visualize progress toward savings goals in real-time." },
-  { icon: Tag, title: "Custom categories", desc: "Create and organize spending your way — not the bank's." },
-  { icon: Mail, title: "Weekly reports", desc: "Get a snapshot of your finances delivered to your inbox." },
-  { icon: AlertCircle, title: "Spending limits", desc: "Set monthly caps and get notified when you're close." },
+  { icon: Wallet, title: "Multi-branch sync", desc: "Connect and track all your hospital branches in one place." },
+  { icon: Target, title: "Trend tracking", desc: "Visualize progress toward stock and visits targets in real-time." },
+  { icon: Tag, title: "Custom item categories", desc: "Create and organize stock your way — not the spreadsheet's." },
+  { icon: Mail, title: "Weekly reports", desc: "Get a snapshot of your hospital's data delivered to your inbox." },
+  { icon: AlertCircle, title: "Low-stock alerts", desc: "Set stock thresholds and get notified when you're running low." },
   { icon: Shield, title: "Secure & private", desc: "Your data is encrypted and never shared — ever." },
 ];
 
@@ -31,7 +31,7 @@ export default function Features() {
             className="text-white font-medium max-w-[700px] mx-auto"
             style={{ fontSize: "48px", letterSpacing: "-1.92px", lineHeight: "56px" }}
           >
-            Designed for clarity, built for better money decisions
+            Designed for clarity, built for better data decisions
           </motion.h2>
         </motion.div>
 

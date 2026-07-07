@@ -23,12 +23,12 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-7 h-7 rounded-lg bg-clario-accent flex items-center justify-center">
-                <span className="text-[#0d0d0d] font-bold text-sm">C</span>
+                <span className="text-[#0d0d0d] font-bold text-sm">B</span>
               </div>
-              <span className="text-white text-lg font-semibold tracking-tight">Clario</span>
+              <span className="text-white text-lg font-semibold tracking-tight">Bayana Analytics</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-[300px]">
-              Your all-in-one money management tool. Track your income, set goals, and stay on top of your finances — effortlessly.
+              Turn your hospital or pharmacy's Excel exports into a live, queryable dashboard — built for Nairobi SMEs.
             </p>
           </div>
 

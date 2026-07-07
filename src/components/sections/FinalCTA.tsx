@@ -18,10 +18,10 @@ export default function FinalCTA() {
           className="text-white font-medium mb-6 text-[32px] md:text-[56px]"
           style={{ letterSpacing: "-2.24px", lineHeight: "1.15" }}
         >
-          Ready to manage your money smarter?
+          Ready to see your data clearly?
         </motion.h2>
         <motion.p variants={fadeUp} className="text-white/50 text-xl mb-12 max-w-[600px] mx-auto leading-relaxed">
-          Start your journey to smarter spending and better saving — it only takes 2 minutes.
+          Upload your Excel exports and get a live dashboard in minutes — no setup, no spreadsheets.
         </motion.p>
         <motion.div variants={fadeUp}>
           <Button variant="filled" href="#get-started">Get Started Free</Button>

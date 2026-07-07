@@ -11,21 +11,21 @@ export default function HeroMockup() {
       <div className="flex items-center justify-between px-5 py-3 border-b border-[#1a1a1a]">
         <div className="flex items-center gap-3">
           <div className="w-6 h-6 rounded-md bg-clario-accent flex items-center justify-center">
-            <span className="text-[#0d0d0d] font-bold text-[10px]">C</span>
+            <span className="text-[#0d0d0d] font-bold text-[10px]">B</span>
           </div>
           <span className="text-white/60 text-xs font-medium">Dashboard</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-[#171717]" />
           <div className="w-6 h-6 rounded-full bg-[#171717]" />
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-clario-accent to-[#5a9e1e]" />
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-clario-accent to-[#3B82F6]" />
         </div>
       </div>
 
       <div className="flex h-[calc(100%-44px)]">
         {/* Sidebar */}
         <div className="w-[180px] border-r border-[#1a1a1a] p-4 flex-col gap-3 hidden md:flex">
-          {["Overview", "Transactions", "Accounts", "Goals", "Reports", "Settings"].map((item, i) => (
+          {["Overview", "Stock", "Branches", "Visits", "Reports", "Settings"].map((item, i) => (
             <div
               key={item}
               className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium ${
@@ -43,16 +43,16 @@ export default function HeroMockup() {
           {/* User + balance row */}
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-clario-accent to-[#5a9e1e] flex items-center justify-center">
-                <span className="text-[#0d0d0d] font-bold text-sm">DM</span>
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-clario-accent to-[#3B82F6] flex items-center justify-center">
+                <span className="text-[#0d0d0d] font-bold text-sm">AK</span>
               </div>
               <div>
-                <p className="text-white text-sm font-semibold">Danielle M.</p>
-                <p className="text-white/40 text-xs">Freelance UX Designer</p>
+                <p className="text-white text-sm font-semibold">Dr. Amina K.</p>
+                <p className="text-white/40 text-xs">Clinic Administrator</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-white/40 text-xs">Total Balance</p>
+              <p className="text-white/40 text-xs">Today's Revenue</p>
               <p className="text-white text-xl font-semibold" style={{ letterSpacing: "-0.5px" }}>$12,847.50</p>
             </div>
           </div>
@@ -60,17 +60,17 @@ export default function HeroMockup() {
           {/* Stat tiles row */}
           <div className="grid grid-cols-3 gap-3 mb-5">
             <div className="rounded-xl p-3.5 bg-[#171717] border border-[#1f1f1f]">
-              <p className="text-white/40 text-[10px] mb-1">Income</p>
+              <p className="text-white/40 text-[10px] mb-1">Patient Visits</p>
               <p className="text-white text-sm font-semibold">$8,420.00</p>
               <p className="text-clario-accent text-[10px] mt-1">+12.5%</p>
             </div>
             <div className="rounded-xl p-3.5 bg-[#171717] border border-[#1f1f1f]">
-              <p className="text-white/40 text-[10px] mb-1">Expenses</p>
+              <p className="text-white/40 text-[10px] mb-1">Low Stock Alerts</p>
               <p className="text-white text-sm font-semibold">$3,420.00</p>
               <p className="text-red-400 text-[10px] mt-1">-4.2%</p>
             </div>
             <div className="rounded-xl p-3.5 bg-[#171717] border border-[#1f1f1f]">
-              <p className="text-white/40 text-[10px] mb-1">Savings</p>
+              <p className="text-white/40 text-[10px] mb-1">Stock Health</p>
               <p className="text-white text-sm font-semibold">$5,000.00</p>
               <p className="text-clario-accent text-[10px] mt-1">On track</p>
             </div>
@@ -79,36 +79,36 @@ export default function HeroMockup() {
           {/* Chart area */}
           <div className="rounded-xl p-4 bg-[#171717] border border-[#1f1f1f] mb-5">
             <div className="flex justify-between items-center mb-3">
-              <p className="text-white text-xs font-semibold">Balance Overview</p>
+              <p className="text-white text-xs font-semibold">Revenue Overview</p>
               <p className="text-white/40 text-[10px]">Last 8 Months</p>
             </div>
             <svg viewBox="0 0 500 120" className="w-full h-[120px]">
               <defs>
                 <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#8cff2e" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#8cff2e" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path d="M0,90 C60,80 120,70 180,50 C240,30 300,40 360,35 C420,30 460,20 500,15 L500,120 L0,120 Z" fill="url(#chartGrad)" />
               <polyline
                 points="0,90 60,80 120,70 180,50 240,30 300,40 360,35 420,30 460,20 500,15"
                 fill="none"
-                stroke="#8cff2e"
+                stroke="#1D4ED8"
                 strokeWidth="2"
               />
-              <circle cx="500" cy="15" r="4" fill="#8cff2e" />
+              <circle cx="500" cy="15" r="4" fill="#1D4ED8" />
             </svg>
           </div>
 
-          {/* Recent Transactions */}
+          {/* Recent Activity */}
           <div className="rounded-xl p-4 bg-[#171717] border border-[#1f1f1f] mb-5">
-            <p className="text-white text-xs font-semibold mb-3">Recent Transactions</p>
+            <p className="text-white text-xs font-semibold mb-3">Recent Activity</p>
             <div className="space-y-2.5">
               {[
-                { name: "Figma Pro", amount: "-$12.00", cat: "Software" },
-                { name: "Client Payment", amount: "+$2,400.00", cat: "Income" },
-                { name: "Coffee Shop", amount: "-$4.50", cat: "Food" },
-                { name: "Dribbble Pro", amount: "-$9.00", cat: "Software" },
+                { name: "Bandages Restock", amount: "-$12.00", cat: "Supplies" },
+                { name: "Insurance Payout", amount: "+$2,400.00", cat: "Revenue" },
+                { name: "Lab Reagents", amount: "-$4.50", cat: "Supplies" },
+                { name: "Pharmacy Restock", amount: "-$9.00", cat: "Supplies" },
               ].map((tx) => (
                 <div key={tx.name} className="flex items-center justify-between py-1.5 border-b border-[#1f1f1f] last:border-0">
                   <div className="flex items-center gap-2">
@@ -130,16 +130,16 @@ export default function HeroMockup() {
 
           {/* Bottom cards */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl p-4 bg-gradient-to-br from-[#1a2e05] to-[#0d0d0d] border border-[#2a3f10]">
+            <div className="rounded-xl p-4 bg-gradient-to-br from-[#0B1220] to-[#0d0d0d] border border-[#131C2E]">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-clario-accent text-[10px] font-semibold">CREDIT</span>
+                <span className="text-clario-accent text-[10px] font-semibold">BRANCH</span>
                 <div className="w-7 h-5 rounded bg-[#0d0d0d]/50" />
               </div>
               <p className="text-white text-base font-semibold">$430,000</p>
               <p className="text-white/30 text-[10px] mt-1">•••• 4242</p>
             </div>
             <div className="rounded-xl p-4 bg-[#171717] border border-[#1f1f1f]">
-              <p className="text-white/40 text-[10px] mb-1">Daily Limit</p>
+              <p className="text-white/40 text-[10px] mb-1">Stock Capacity</p>
               <p className="text-white text-sm font-semibold mb-3">$2,500.00</p>
               <div className="w-full h-1.5 rounded-full bg-[#0d0d0d]">
                 <div className="h-full rounded-full bg-clario-accent" style={{ width: "12.5%" }} />

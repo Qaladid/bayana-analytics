@@ -20,26 +20,26 @@ export default function Testimonial() {
           className="text-center text-white font-medium mb-12 md:mb-32"
           style={{ fontSize: "48px", letterSpacing: "-1.92px", lineHeight: "56px" }}
         >
-          Loved by individuals and small teams
+          Loved by hospitals and pharmacies
         </motion.h2>
 
         <motion.div variants={fadeUp} className="text-center max-w-[700px] mx-auto">
           <p className="text-white/50 text-base md:text-xl mb-10 md:mb-28 leading-relaxed max-w-[560px] mx-auto">
-            People across industries trust Clario to manage money, reduce stress, and make smarter decisions — all in one simple dashboard.
+            Hospitals and pharmacies across Nairobi trust Bayana to manage stock, visits, and revenue — all in one simple dashboard.
           </p>
 
           <div className="flex flex-col items-center">
-            <div className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] rounded-full bg-gradient-to-br from-clario-accent to-[#5a9e1e] flex items-center justify-center mb-8">
-              <span className="text-[#0d0d0d] font-bold text-3xl">DM</span>
+            <div className="w-[80px] h-[80px] md:w-[120px] md:h-[120px] rounded-full bg-gradient-to-br from-clario-accent to-[#3B82F6] flex items-center justify-center mb-8">
+              <span className="text-[#0d0d0d] font-bold text-3xl">JM</span>
             </div>
-            <p className="text-white font-semibold text-lg">Danielle M.</p>
-            <p className="text-white/40 text-sm mb-8 md:mb-16">Freelance UX Designer</p>
+            <p className="text-white font-semibold text-lg">James M.</p>
+            <p className="text-white/40 text-sm mb-8 md:mb-16">Pharmacy Operations Manager</p>
 
             <blockquote
               className="text-white font-medium max-w-[640px] text-[28px] md:text-[48px]"
               style={{ letterSpacing: "-1px", lineHeight: "1.5" }}
             >
-              &ldquo;With Clario, I finally stopped stressing about my cash flow. I know where my money is going — and I&rsquo;m actually saving.&rdquo;
+              &ldquo;With Bayana, I finally stopped digging through Excel sheets every week. I know exactly what's happening across our branches — in real time.&rdquo;
             </blockquote>
           </div>
         </motion.div>

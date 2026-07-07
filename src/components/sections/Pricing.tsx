@@ -8,16 +8,16 @@ const tiers = [
     name: "Starter",
     price: "$29",
     period: "/month",
-    desc: "Perfect for freelancers who want full control over their personal finances.",
-    features: ["Track income & expenses", "Connect up to 2 accounts", "Monthly reports", "Smart alerts"],
+    desc: "Perfect for single-branch clinics who want full control over their hospital data.",
+    features: ["Track stock, visits & revenue", "Connected to 2 branches", "Monthly reports", "Low-stock alerts"],
     popular: false,
   },
   {
     name: "Pro",
     price: "$49",
     period: "/month",
-    desc: "Advanced tools to manage your money smarter and unlock powerful insights.",
-    features: ["Unlimited accounts", "AI spending insights", "Custom alerts", "Advanced reporting"],
+    desc: "Advanced tools to manage your hospital data smarter and unlock powerful insights.",
+    features: ["Unlimited branches", "AI chatbot for your data", "Custom alerts", "Advanced reporting"],
     popular: true,
   },
 ];
@@ -47,7 +47,7 @@ export default function Pricing() {
             Straightforward pricing with no hidden costs. Everything you need to manage your money better.
           </motion.p>
 
-          {/* Toggle (decorative — mirrors Clario's non-functional toggle) */}
+          {/* Toggle (decorative — mirrors Bayana's non-functional toggle) */}
           <motion.div variants={fadeUp} className="inline-flex items-center gap-1 p-1 rounded-full bg-[#0d0d0d] border border-[#1a1a1a] mt-6">
             <span className="px-4 py-1.5 rounded-full bg-clario-accent text-[#0d0d0d] text-sm font-semibold">Monthly</span>
             <span className="px-4 py-1.5 text-white/40 text-sm font-medium">Yearly</span>
@@ -69,7 +69,7 @@ export default function Pricing() {
               style={{
                 background: "#0d0d0d",
                 boxShadow: tier.popular
-                  ? "inset 0px 1px 0px 0px rgba(140,255,47,0.15), inset 0px -1px 0px 0px rgba(140,255,47,0.15), 0px 1px 2px 0px rgba(140,255,47,0.4), 0px 3px 8px 0px rgba(140,255,47,0.19), 0px 6px 4px 0px rgba(140,255,47,0.05)"
+                  ? "inset 0px 1px 0px 0px rgba(29,78,216,0.15), inset 0px -1px 0px 0px rgba(29,78,216,0.15), 0px 1px 2px 0px rgba(29,78,216,0.4), 0px 3px 8px 0px rgba(29,78,216,0.19), 0px 6px 4px 0px rgba(29,78,216,0.05)"
                   : "inset 0px 1px 0px 0px rgba(23,23,23,0.15), inset 0px -1px 0px 0px rgba(23,23,23,0.15), 0px 1px 2px 0px rgba(23,23,23,0.4), 0px 3px 8px 0px rgba(23,23,23,0.19), 0px 6px 4px 0px rgba(23,23,23,0.05)",
               }}
             >
@@ -120,7 +120,7 @@ export default function Pricing() {
             }}
           >
             <h3 className="text-white font-semibold text-xl mb-2">Trusted by teams worldwide</h3>
-            <p className="text-white/50 text-sm">Invite your team, sync accounts in real time, and track shared goals with ease.</p>
+            <p className="text-white/50 text-sm">Invite your team, sync branches in real time, and track shared targets with ease.</p>
           </motion.div>
         </motion.div>
       </div>

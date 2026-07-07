@@ -1,38 +1,32 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { LogIn, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function handleGoogleSignIn() {
     setError(null);
     setLoading(true);
 
     const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+    const { error: oauthError } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        // Dynamic origin works on both localhost:3000 and the Vercel deployment
+        // without hardcoding either domain.
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
     });
 
-    if (signInError) {
-      setError(signInError.message);
+    if (oauthError) {
+      setError(oauthError.message);
       setLoading(false);
-      return;
     }
-
-    // Session established — use a full-page navigation so the browser sends
-    // the fresh session cookie with a new request, middleware re-validates,
-    // and server components render with the correct session.
-    // client-side router.push() + router.refresh() is racy in App Router
-    // and causes a 404 because refresh() fires against the in-flight push.
-    window.location.href = "/dashboard";
+    // On success Supabase redirects the browser to Google — no manual nav needed.
   }
 
   return (
@@ -53,59 +47,31 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-[#1A1A1A] p-8">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-sm text-white/60">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:border-[#14B8A6] focus:outline-none focus:ring-1 focus:ring-[#14B8A6] transition"
-                placeholder="you@hospital.org"
-              />
-            </div>
+        <div className="rounded-2xl border border-white/10 bg-[#1A1A1A] p-8 flex flex-col gap-4">
+          {error && (
+            <p className="rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-2.5 text-sm text-red-400 text-center">
+              {error}
+            </p>
+          )}
 
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="password" className="text-sm text-white/60">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/20 focus:border-[#14B8A6] focus:outline-none focus:ring-1 focus:ring-[#14B8A6] transition"
-                placeholder="••••••••"
-              />
-            </div>
-
-            {error && (
-              <p className="rounded-lg bg-red-500/10 border border-red-500/20 px-4 py-2.5 text-sm text-red-400">
-                {error}
-              </p>
+          <button
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            className="flex items-center justify-center gap-3 rounded-[23px] border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              /* Google "G" logo SVG */
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.64 9.20455C17.64 8.56637 17.5827 7.95274 17.4764 7.36365H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8196H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"/>
+                <path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4204 9 14.4204C6.65591 14.4204 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z" fill="#34A853"/>
+                <path d="M3.96409 10.71C3.78409 10.17 3.68182 9.59319 3.68182 9.00001C3.68182 8.40683 3.78409 7.83001 3.96409 7.29001V4.95819H0.957275C0.347727 6.17319 0 7.54774 0 9.00001C0 10.4523 0.347727 11.8268 0.957275 13.0418L3.96409 10.71Z" fill="#FBBC05"/>
+                <path d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z" fill="#EA4335"/>
+              </svg>
             )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="mt-1 flex items-center justify-center gap-2 rounded-[23px] bg-[#0F6E5C] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <LogIn className="h-4 w-4" />
-              )}
-              {loading ? "Signing in…" : "Sign in"}
-            </button>
-          </form>
+            {loading ? "Redirecting to Google…" : "Continue with Google"}
+          </button>
         </div>
       </motion.div>
     </div>

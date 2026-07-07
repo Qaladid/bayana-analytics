@@ -20,7 +20,7 @@ app = FastAPI(title="Bayana AI Service")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://vercel.app",
+        "https://bayana-analytics.vercel.app",
         "http://localhost:3000",
     ],
     allow_credentials=True,

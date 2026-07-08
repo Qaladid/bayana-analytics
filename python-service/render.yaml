@@ -7,7 +7,14 @@ services:
     envVars:
       - key: SUPABASE_URL
         sync: false
-      - key: SUPABASE_SERVICE_ROLE_KEY 
+      - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
-      - key: ADAL_AUTH_TOKEN
+      - key: GROQ_API_KEY
         sync: false
+      # - key: ADAL_AUTH_TOKEN
+      #   sync: false
+      # Originally built against Adal Cloud (see submission.md for the
+      # full AdaL workflow: Engineer mode, Builder/Evaluator agents).
+      # Adal Cloud credits were exhausted mid-build, so the AI service
+      # was migrated to call Groq directly instead. Left commented
+      # rather than deleted to keep that history visible.

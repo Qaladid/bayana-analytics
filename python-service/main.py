@@ -1,7 +1,8 @@
 import logging
 import os
+import hmac
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request  
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from groq import Groq
@@ -13,6 +14,7 @@ logger = logging.getLogger("bayana-ai")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+INTERNAL_API_SECRET = os.environ.get("INTERNAL_API_SECRET", "")
 SYSTEM_PROMPT_PATH = os.path.join("/app", "system_prompt.txt")
 
 app = FastAPI(title="Bayana AI Service")
@@ -115,7 +117,10 @@ TOOLS_SCHEMA = [
 
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(req: ChatRequest):
+async def chat(req: ChatRequest, request: Request):
+    provided_secret = request.headers.get("X-Internal-Secret", "")
+    if not INTERNAL_API_SECRET or not hmac.compare_digest(provided_secret, INTERNAL_API_SECRET):
+        raise HTTPException(status_code=401, detail="Unauthorized")
     try:
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},

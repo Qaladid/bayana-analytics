@@ -5,6 +5,7 @@ import { createServerSupabaseClient } from "@/lib/supabase-server";
 export const maxDuration = 60;
 
 const CHAT_SERVICE_URL = process.env.CHAT_SERVICE_URL!;
+const INTERNAL_API_SECRET = process.env.INTERNAL_API_SECRET!;
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,7 +30,10 @@ export async function POST(req: NextRequest) {
     // Proxy to the self-hosted AdaL SDK service
     const res = await fetch(`${CHAT_SERVICE_URL}/chat`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        "X-Internal-Secret": INTERNAL_API_SECRET
+      },
       body: JSON.stringify({ org_id: orgId, message }),
     });
 

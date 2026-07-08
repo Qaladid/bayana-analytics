@@ -26,11 +26,11 @@ This account has seeded demo data (stock levels, patient visits, and revenue sou
 | Charts | Recharts |
 | Animation | Framer Motion |
 | Icons | lucide-react |
-| AI assistant | Adal Cloud REST API (see below) |
+| AI assistant | FastAPI service on Render, Groq (Llama 3.3 70B) — see below |
 
 **AI assistant layer.** The chatbot runs as a separate FastAPI service ([`python-service/main.py`](python-service/main.py)) deployed on Render, called from [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts). It was originally wired up against the **AdaL Cloud SDK** (`adal_agent_sdk`), but AdaL credits ran out mid-build — the deployed service returned `402 insufficient_credits` on every request. The inference layer was migrated to **Groq** (Llama 3.3 70B) to unblock the demo; the guardrails, system prompt, and org-scoping logic carried over unchanged, only the model provider changed.
 
-The flow: the Next.js route resolves the caller's `org_id` server-side from the authenticated Supabase session (never trusting client input), then POSTs `{ org_id, message }` to the Python service. That service sends the conversation to Groq along with three tool definitions (`get_stock_levels`, `get_patient_visits`, `get_revenue`). When Groq decides a tool is needed, the Python service executes the real Supabase query itself — Groq never touches the database directly, it only reasons over the plain-text results returned by these functions.
+The flow: the Next.js route resolves the caller's `org_id` server-side from the authenticated Supabase session (never trusting client input), then POSTs `{ org_id, message }` to the Python service, authenticated with a shared secret (see **Section 7a — Service-to-Service Security** below). That service sends the conversation to Groq along with three tool definitions (`get_stock_levels`, `get_patient_visits`, `get_revenue`). When Groq decides a tool is needed, the Python service executes the real Supabase query itself — Groq never touches the database directly, it only reasons over the plain-text results returned by these functions.
 
 ## 4. Run Locally
 
@@ -45,7 +45,7 @@ The app runs on http://localhost:3000.
 
 ### Required environment variables
 
-Create a `.env.local` file with the following variable **names** (do not commit real values). The Supabase keys come from your Supabase project dashboard → Settings → API; the Adal Cloud values come from your Adal Cloud agent configuration.
+Create a `.env.local` file with the following variable **names** (do not commit real values). The Supabase keys come from your Supabase project dashboard → Settings → API.
 
 ```
 # Supabase
@@ -56,17 +56,20 @@ SUPABASE_SERVICE_ROLE_KEY=
 # App URL (OAuth redirect / webhooks)
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Adal Cloud — AI assistant
-ADAL_BASE_URL=
-ADAL_JWT=
-ADAL_AGENT_ID=
+# AI assistant service (FastAPI on Render)
+CHAT_SERVICE_URL=
+INTERNAL_API_SECRET=
 ```
 
 > Stripe keys (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`) are listed in `.env.local` as commented-out placeholders. They are **not** required to run the app today — see Known Limitations.
 
+> `INTERNAL_API_SECRET` must be set to the **same random value** on both Vercel (Next.js) and Render (the Python service) — it authenticates requests between the two services so the chat endpoint cannot be called directly by anyone else. See Section 7a.
+
 ## 5. Deployment
 
-The repository is configured on **Vercel** and linked to this GitHub repo, so **every commit and push automatically triggers a new deployment** — no manual build or deploy step. Environment variables (Supabase, Adal Cloud, app URL) are configured in the Vercel project settings under Settings → Environment Variables. No CI/CD pipeline runs outside of Vercel's built-in build-on-push.
+The repository is configured on **Vercel** and linked to this GitHub repo, so **every commit and push automatically triggers a new deployment** — no manual build or deploy step. Environment variables (Supabase, chat service URL/secret, app URL) are configured in the Vercel project settings under Settings → Environment Variables. No CI/CD pipeline runs outside of Vercel's built-in build-on-push — see Known Limitations.
+
+The AI assistant's FastAPI service is deployed separately on **Render**, with its own environment variables (Supabase, Groq, `INTERNAL_API_SECRET`) configured in the Render dashboard.
 
 ## 6. Database Schema
 
@@ -102,6 +105,22 @@ Screenshots of all three exchanges are in [`screenshots/`](screenshots/).
 
 See [`GUARDRAILS.md`](GUARDRAILS.md) for the full text of each rule.
 
+### 7a. Service-to-Service Security
+
+The FastAPI chat service holds a Supabase **service-role key**, which bypasses Row Level Security entirely. Early in the build, the `/chat` endpoint on Render was publicly reachable by anyone with the URL — a direct `curl` request with an arbitrary `org_id` could have pulled another organization's real data, since nothing verified the request actually came from this app's own Next.js server.
+
+**Fix:** every request from Next.js to the FastAPI service now includes an `X-Internal-Secret` header, checked against `INTERNAL_API_SECRET` (identical value on both Vercel and Render) using a constant-time comparison (`hmac.compare_digest`) in [`python-service/main.py`](python-service/main.py). Requests missing or presenting the wrong secret are rejected with `401 Unauthorized` before any Supabase query or Groq call is made.
+
+**Verified, both directions, against the live deployment:**
+
+- **Illegitimate traffic** — a direct `Invoke-RestMethod` request to `https://bayana-analytics.onrender.com/chat`, with no secret header, correctly rejected with `401 Unauthorized`:
+
+  ![Illegitimate traffic rejected](submission-screenshots/Illegitimate_traffic.png)
+
+- **Legitimate traffic** — the same endpoint, called through the real app (Next.js attaches the correct secret server-side), returns real data and correctly enforces the on-topic guardrail in the same session:
+
+  ![Legitimate traffic succeeds](submission-screenshots/legitimate_traffic.png)
+
 ## 8. Current State / Known Issues
 
 This section is an honest snapshot of what works, what's simulated, and what's still open — not a roadmap. Nothing here is rounded up to "done."
@@ -110,7 +129,7 @@ This section is an honest snapshot of what works, what's simulated, and what's s
 
 - **Authentication with fail-closed middleware.** [`src/middleware.ts`](src/middleware.ts) guards every `/dashboard` route using the Supabase SSR client; unauthenticated users are redirected to `/auth/login` and session tokens are refreshed on each request. There is no unprotected path into the dashboard.
 - **Dashboard reading live Supabase data.** The revenue, stock, and visits pages ([`src/app/dashboard/`](src/app/dashboard/)) fetch live rows from Supabase scoped by `org_id` and render them with Recharts.
-- **AI assistant via Adal Cloud.** [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts) resolves the caller's `org_id` server-side, opens an Adal Cloud session, streams the SSE response, and returns the completed assistant message — gated behind the auth check so unauthenticated requests never reach the model.
+- **AI assistant via Groq, secured service-to-service.** [`src/app/api/chat/route.ts`](src/app/api/chat/route.ts) resolves the caller's `org_id` server-side, then calls the FastAPI service on Render with a shared-secret header (Section 7a) — unauthenticated requests never reach the model or the database, whether they come through the app or directly against the Render URL.
 
 ### Simulated or manual rather than fully automated
 
@@ -123,7 +142,7 @@ This section is an honest snapshot of what works, what's simulated, and what's s
 - **CI/CD pipeline.** Outside of Vercel's build-on-push, there are no GitHub Actions or other CI workflows running lint, tests, or checks.
 - **Lighthouse / accessibility audit.** No audit results are checked in; a11y and performance baselines have not been formally measured.
 - **Landing page CTA buttons.** The "Get Started Free" buttons in [`Hero.tsx`](src/components/sections/Hero.tsx) and [`FinalCTA.tsx`](src/components/sections/FinalCTA.tsx) point to the anchor `#get-started` rather than `/auth/login`, so they scroll the page instead of routing to sign-in.
-- **Dashboard KPI cards.** [`OverviewContent.tsx`](src/components/dashboard/OverviewContent.tsx) still contains `[DEBUG] console.log("[KPI] ...")` statements at lines 21, 30, 40, 47, and 54, indicating the KPI fetch is under active investigation and not yet considered stable.
+- **`[org_id: ...]` leaking into chat replies.** The assistant occasionally echoes the raw `[org_id: <value>]` context tag back in its visible reply text instead of using it silently. Not a security issue (the real org_id is still resolved and enforced correctly server-side) — cosmetic, traced to the system prompt instructing the model to "extract" the tag rather than treat it as internal-only context.
 
 ### Data connectors — current and planned
 
@@ -131,4 +150,4 @@ The SaaS currently ships with **one connector: the Excel upload**. We are adding
 
 ## 9. AdaL Workflow Note
 
-AdaL 2 Engineer mode was used with Builder/Evaluator workers for the frontend build (landing page structural clone, dashboard scaffolding, page wiring). The AI chatbot backend was also originally built against AdaL Cloud's hosted agent runtime (`adal_agent_sdk`), but AdaL credits ran out once deployed — the Python service returned `402 insufficient_credits` on every chat request. To keep the AI feature working for the demo, the inference layer was switched to Groq (free tier, OpenAI-compatible function calling), while keeping the same architecture: a system prompt, tool definitions, and org-scoped tool execution, unchanged from the AdaL version.
+AdaL 2 Engineer mode was used with Builder/Evaluator workers for the frontend build (landing page structural clone, dashboard scaffolding, page wiring). The AI chatbot backend was also originally built against AdaL Cloud's hosted agent runtime (`adal_agent_sdk`), but AdaL credits ran out once deployed — the Python service returned `402 insufficient_credits` on every chat request. To keep the AI feature working for the demo, the inference layer was switched to Groq (free tier, OpenAI-compatible function calling), while keeping the same architecture: a system prompt, tool definitions, and org-scoped tool execution, unchanged from the AdaL version. The service-to-service security gap this introduced (Section 7a) was identified and fixed after a technical review flagged it as the highest-impact issue in the submission.

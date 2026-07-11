@@ -2,11 +2,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [passwordLoading, setPasswordLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   async function handleGoogleSignIn() {
     setError(null);
@@ -16,8 +21,6 @@ export default function LoginPage() {
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        // Dynamic origin works on both localhost:3000 and the Vercel deployment
-        // without hardcoding either domain.
         redirectTo: `${window.location.origin}/auth/callback`,
       },
     });
@@ -26,7 +29,26 @@ export default function LoginPage() {
       setError(oauthError.message);
       setLoading(false);
     }
-    // On success Supabase redirects the browser to Google — no manual nav needed.
+  }
+
+  async function handlePasswordSignIn(e: React.FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setPasswordLoading(true);
+
+    const supabase = createClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
+      setError(signInError.message);
+      setPasswordLoading(false);
+    } else {
+      router.push("/dashboard");
+      router.refresh();
+    }
   }
 
   return (
@@ -37,7 +59,6 @@ export default function LoginPage() {
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="w-full max-w-md"
       >
-        {/* Logo / wordmark */}
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-white tracking-tight">
             Bayana Analytics
@@ -56,13 +77,12 @@ export default function LoginPage() {
 
           <button
             onClick={handleGoogleSignIn}
-            disabled={loading}
+            disabled={loading || passwordLoading}
             className="flex items-center justify-center gap-3 rounded-[23px] border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              /* Google "G" logo SVG */
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.64 9.20455C17.64 8.56637 17.5827 7.95274 17.4764 7.36365H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8196H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"/>
                 <path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4204 9 14.4204C6.65591 14.4204 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z" fill="#34A853"/>
@@ -72,6 +92,44 @@ export default function LoginPage() {
             )}
             {loading ? "Redirecting to Google…" : "Continue with Google"}
           </button>
+
+          <div className="flex items-center gap-3 my-1">
+            <div className="h-px flex-1 bg-white/10" />
+            <span className="text-xs text-white/30 uppercase tracking-wide">or</span>
+            <div className="h-px flex-1 bg-white/10" />
+          </div>
+
+          <form onSubmit={handlePasswordSignIn} className="flex flex-col gap-3">
+            <input
+              type="email"
+              required
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={loading || passwordLoading}
+              className="rounded-[23px] border border-white/10 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/30 disabled:opacity-60"
+            />
+            <input
+              type="password"
+              required
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading || passwordLoading}
+              className="rounded-[23px] border border-white/10 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-white/30 disabled:opacity-60"
+            />
+            <button
+              type="submit"
+              disabled={loading || passwordLoading}
+              className="flex items-center justify-center gap-3 rounded-[23px] border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {passwordLoading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                "Sign in with email"
+              )}
+            </button>
+          </form>
         </div>
       </motion.div>
     </div>

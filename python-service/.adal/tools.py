@@ -1,4 +1,8 @@
 # """
+# NOTE: This file reflects the original AdaL Cloud SDK tool design.
+# Fully commented out — superseded by main.py's Groq-based implementation
+# after AdaL credits ran out mid-build. Kept for reference only, not executed.
+
 # Bayana Analytics custom tools — queried directly from Supabase REST API.
 # Uses only stdlib (urllib, json, os) so it works in any Python environment,
 # including the AdaL CLI's embedded runtime, without extra pip installs.

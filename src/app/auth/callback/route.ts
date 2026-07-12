@@ -4,7 +4,8 @@ import { cookies } from 'next/headers'
 
 /**
  * OAuth + email-confirmation callback.
- * Exchanges the one-time `code` for a session.
+ * Exchanges the one-time `code` for a session, then activates the
+ * org's subscription (demo-mode — no real payment processor yet).
  * Org + user profile creation is handled automatically by the
  * `on_auth_user_created` database trigger — nothing extra needed here.
  */
@@ -39,6 +40,37 @@ export async function GET(request: Request) {
   if (error) {
     console.error('[auth/callback] exchangeCodeForSession error:', error.message)
     return NextResponse.redirect(`${origin}/auth/login?error=auth_error`)
+  }
+
+  // Demo-mode subscription activation — no real payment processor yet.
+  // Replace with a Stripe webhook handler when live billing is wired up.
+  const { data: { user } } = await supabase.auth.getUser()
+  if (user) {
+    const { data: userRow } = await supabase
+      .from('users')
+      .select('org_id')
+      .eq('id', user.id)
+      .single()
+
+    const orgId = userRow?.org_id
+    if (orgId) {
+      const { data: existing } = await supabase
+        .from('subscriptions')
+        .select('id')
+        .eq('org_id', orgId)
+        .single()
+
+      if (existing) {
+        await supabase
+          .from('subscriptions')
+          .update({ subscription_status: 'active', updated_at: new Date().toISOString() })
+          .eq('org_id', orgId)
+      } else {
+        await supabase
+          .from('subscriptions')
+          .insert({ org_id: orgId, subscription_status: 'active', updated_at: new Date().toISOString() })
+      }
+    }
   }
 
   return NextResponse.redirect(`${origin}${next}`)

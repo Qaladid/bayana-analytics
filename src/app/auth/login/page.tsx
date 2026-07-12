@@ -45,10 +45,22 @@ export default function LoginPage() {
     if (signInError) {
       setError(signInError.message);
       setPasswordLoading(false);
-    } else {
-      router.push("/dashboard");
-      router.refresh();
+      return;
     }
+
+    const response = await fetch("/api/activate-subscription", {
+      method: "POST",
+    });
+
+    if (!response.ok) {
+      const data = await response.json().catch(() => null);
+      setError(data?.error ?? "Activation failed");
+      setPasswordLoading(false);
+      return;
+    }
+
+    router.push("/dashboard");
+    router.refresh();
   }
 
   return (

@@ -20,9 +20,26 @@ export default async function DashboardLayout({
   // Fetch the user's profile + org from public.users
   const { data: profile } = await supabase
     .from('users')
-    .select('role, email, organizations(name)')
+    .select('org_id, role, email, organizations(name)')
     .eq('id', user.id)
     .single()
+
+  const orgId = profile?.org_id
+
+  // Gate on subscription status — no active subscription, no dashboard access.
+  if (orgId) {
+    const { data: subscription } = await supabase
+      .from('subscriptions')
+      .select('subscription_status')
+      .eq('org_id', orgId)
+      .single()
+
+    if (subscription?.subscription_status !== 'active') {
+      redirect('/#pricing')
+    }
+  } else {
+    redirect('/#pricing')
+  }
 
   const orgs = profile?.organizations as { name: string }[] | null
   const orgName = orgs?.[0]?.name ?? 'Your Organization'
@@ -33,7 +50,6 @@ export default async function DashboardLayout({
       <Sidebar />
 
       <div className="flex flex-1 flex-col">
-        {/* Top bar */}
         <header className="flex items-center justify-between border-b border-white/10 px-8 py-4">
           <span className="text-lg font-semibold text-white">{orgName}</span>
           <div className="flex items-center gap-4">
@@ -47,11 +63,9 @@ export default async function DashboardLayout({
           </div>
         </header>
 
-        {/* Page content */}
         <main className="flex-1 overflow-auto p-8">{children}</main>
       </div>
 
-      {/* Floating AI chat widget — visible on all dashboard pages */}
       <ChatWidget />
     </div>
   )

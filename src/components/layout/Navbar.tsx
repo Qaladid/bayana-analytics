@@ -37,8 +37,18 @@ export default function Navbar() {
 
       {/* Buttons */}
       <motion.div variants={fadeUpSmall} className="hidden md:flex items-center gap-3">
-        <Button variant="outline" href="#waitlist">Waitlist</Button>
-        <Button variant="filled" href="/auth/login" compact>Sign In</Button>
+        <a
+          href="#waitlist"
+          className="inline-flex items-center justify-center gap-2 rounded-[23px] px-[24px] py-3 text-[15px] font-semibold transition-all bg-clario-border text-white hover:bg-[#2a2a2a]"
+        >
+          Waitlist
+        </a>
+        <a
+          href="/auth/login"
+          className="inline-flex items-center justify-center gap-2 rounded-[23px] px-[24px] py-3 text-[15px] font-semibold transition-all bg-clario-accent text-[#0d0d0d] shadow-cta hover:brightness-110"
+        >
+          Sign In
+        </a>
       </motion.div>
 
       {/* Mobile menu button */}

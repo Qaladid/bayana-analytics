@@ -9,11 +9,21 @@ Bayana Analytics is a multi-tenant healthcare analytics dashboard that lets medi
 - **Live demo:** https://bayana-analytics.vercel.app
 - **Repository:** https://github.com/Qaladid/bayana-analytics
 
+## Review Access
+
+Use the reviewer account below to verify the dashboard, AI assistant, and seeded demo data without needing any personal Google OAuth access.
+
+- **Email:** `grader@bayana-analytics.test`
+- **Password:** `GraderPass123`
+- **Expected result:** lands directly on the dashboard with seeded data and can ask the AI assistant live questions.
+
 ## Test Credentials
 
-Email: use your account as it uses google's OAuth
+This reviewer account is pre-seeded with demo data (stock levels, patient visits, and revenue) for the review org.
 
-This account has seeded demo data (stock levels, patient visits, and revenue sourced from a real hospital analytics project) already populated in Supabase for org_id `68ff7230-038a-4708-b1da-cf3c471d21a4`.
+- **Email:** `grader@bayana-analytics.test`
+- **Password:** `GraderPass123`
+- **Org:** pre-seeded with 22 stock items, 60 patient visits, KES 13,777,083 revenue
 
 ## 3. Tech Stack & Architecture
 
@@ -59,11 +69,18 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 # AI assistant service (FastAPI on Render)
 CHAT_SERVICE_URL=
 INTERNAL_API_SECRET=
-```
 
+# Groq inference for the Python service
+GROQ_API_KEY=
+
+# Python service Supabase access (same project as NEXT_PUBLIC_SUPABASE_URL)
+SUPABASE_URL=
+```
 > Stripe keys (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`) are listed in `.env.local` as commented-out placeholders. They are **not** required to run the app today — see Known Limitations.
 
 > `INTERNAL_API_SECRET` must be set to the **same random value** on both Vercel (Next.js) and Render (the Python service) — it authenticates requests between the two services so the chat endpoint cannot be called directly by anyone else. See Section 7a.
+>
+> Legacy variables `ADAL_AUTH_TOKEN` and the old `SUPABASE_KEY` are no longer used anywhere and can be disregarded.
 
 ## 5. Deployment
 
@@ -83,7 +100,7 @@ All tables live in the connected Supabase Postgres database and are **org-scoped
 | `stock_levels` | Inventory snapshots across branches/items. |
 | `patient_visits` | Patient traffic and visit counts. |
 | `revenue` | Financial revenue records. |
-| `subscriptions` | Tracks `stripe_customer_id` and `subscription_status` for the (currently simulated) paywall. |
+| `subscriptions` | Tracks `stripe_customer_id` and `subscription_status` for the (currently simulated) paywall. Dashboard access now requires `subscription_status = 'active'`, and the plan-aware activation flow updates this status on signup/check-out. |
 
 Migrations live under [`supabase/migrations/`](supabase/migrations/).
 

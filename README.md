@@ -163,7 +163,7 @@ This section is an honest snapshot of what works, what's simulated, and what's s
 
 ### Data connectors — current and planned
 
-The SaaS currently ships with **one connector: the Excel upload**. We are adding direct connectors to HMIS systems such as **PharmaCore**. Once the data pipeline work is complete, the PharmaCore connector will be ready, and hospitals already running that system will be able to connect their HMIS to Bayana Analytics after payment — no manual export/import step required. Until then, data flows through the Excel connector or manual seeding.
+The SaaS currently ships with connector support for Excel uploads and is actively expanding direct connectors to popular HMIS/EMR platforms. Planned and in-progress connectors include **PharmaCore**, **Ilara**, **AphiaOne**, **KeHMIS**, and other HMIS/EMR systems; each connector will be added as the partner product and integration become available. Once a connector is ready, hospitals running that system will be able to connect their HMIS to Bayana Analytics (after subscription) — no manual export/import step required. Until a specific connector is available, data can still be ingested via the Excel connector or by manual seeding.
 
 ## 9. AdaL Workflow Note
 

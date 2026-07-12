@@ -14,16 +14,21 @@ export default function LoginPageClient() {
   const [password, setPassword] = useState('');
   const searchParams = useSearchParams();
   const plan = searchParams.get('plan');
+  const next = searchParams.get('next') ?? (plan ? '/dashboard' : '/');
 
   async function handleGoogleSignIn() {
     setError(null);
     setLoading(true);
 
+    const redirectUrl = new URL(`${window.location.origin}/auth/callback`);
+    if (plan) redirectUrl.searchParams.set('plan', plan);
+    if (next) redirectUrl.searchParams.set('next', next);
+
     const supabase = createClient();
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback${plan ? `?plan=${plan}` : ''}`,
+        redirectTo: redirectUrl.toString(),
       },
     });
 
@@ -63,7 +68,7 @@ export default function LoginPageClient() {
       }
     }
 
-    router.push('/dashboard');
+    router.push(next);
     router.refresh();
   }
 

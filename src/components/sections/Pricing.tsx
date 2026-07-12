@@ -101,7 +101,7 @@ export default function Pricing() {
                 ))}
               </div>
               <Link
-                href={`/auth/login?plan=${tier.name.toLowerCase()}`}
+                href={`/auth/login?plan=${tier.name.toLowerCase()}&next=/dashboard`}
                 className="mt-10 flex items-center justify-center gap-2 rounded-[23px] px-6 py-3 text-[15px] font-semibold transition-all bg-clario-accent text-[#0d0d0d] hover:brightness-110 w-full"
               >
                 Get Started

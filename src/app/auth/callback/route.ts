@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
   const plan = searchParams.get('plan')
-  const next = searchParams.get('next') ?? '/dashboard'
+  const next = searchParams.get('next') ?? (plan ? '/dashboard' : '/')
 
   if (!code) {
     return NextResponse.redirect(`${origin}/auth/login?error=missing_code`)

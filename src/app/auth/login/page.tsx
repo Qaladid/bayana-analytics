@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -68,14 +68,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B1220] flex items-center justify-center px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="w-full max-w-md"
-      >
-        <div className="mb-8 text-center">
+    <Suspense fallback={null}>
+      <div className="min-h-screen bg-[#0B1220] flex items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="w-full max-w-md"
+        >
+          <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-white tracking-tight">
             Bayana Analytics
           </h1>
@@ -149,5 +150,6 @@ export default function LoginPage() {
         </div>
       </motion.div>
     </div>
+  </Suspense>
   );
 }

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 
 export default function LoginPage() {
@@ -12,6 +12,8 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const searchParams = useSearchParams();
+  const plan = searchParams.get("plan");
 
   async function handleGoogleSignIn() {
     setError(null);
@@ -21,7 +23,7 @@ export default function LoginPage() {
     const { error: oauthError } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/auth/callback${plan ? `?plan=${plan}` : ""}`,
       },
     });
 
@@ -48,15 +50,17 @@ export default function LoginPage() {
       return;
     }
 
-    const response = await fetch("/api/activate-subscription", {
-      method: "POST",
-    });
+    if (plan) {
+      const response = await fetch("/api/activate-subscription", {
+        method: "POST",
+      });
 
-    if (!response.ok) {
-      const data = await response.json().catch(() => null);
-      setError(data?.error ?? "Activation failed");
-      setPasswordLoading(false);
-      return;
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        setError(data?.error ?? "Activation failed");
+        setPasswordLoading(false);
+        return;
+      }
     }
 
     router.push("/dashboard");

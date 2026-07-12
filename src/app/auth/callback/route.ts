@@ -12,6 +12,7 @@ import { cookies } from 'next/headers'
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
+  const plan = searchParams.get('plan')
   const next = searchParams.get('next') ?? '/dashboard'
 
   if (!code) {
@@ -42,33 +43,35 @@ export async function GET(request: Request) {
     return NextResponse.redirect(`${origin}/auth/login?error=auth_error`)
   }
 
-  // Demo-mode subscription activation — no real payment processor yet.
-  // Replace with a Stripe webhook handler when live billing is wired up.
-  const { data: { user } } = await supabase.auth.getUser()
-  if (user) {
-    const { data: userRow } = await supabase
-      .from('users')
-      .select('org_id')
-      .eq('id', user.id)
-      .single()
-
-    const orgId = userRow?.org_id
-    if (orgId) {
-      const { data: existing } = await supabase
-        .from('subscriptions')
-        .select('id')
-        .eq('org_id', orgId)
+  // Only activate if the person came through a pricing plan link —
+  // a plain "Sign In" click should never grant dashboard access on its own.
+  if (plan) {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (user) {
+      const { data: userRow } = await supabase
+        .from('users')
+        .select('org_id')
+        .eq('id', user.id)
         .single()
 
-      if (existing) {
-        await supabase
+      const orgId = userRow?.org_id
+      if (orgId) {
+        const { data: existing } = await supabase
           .from('subscriptions')
-          .update({ subscription_status: 'active', updated_at: new Date().toISOString() })
+          .select('id')
           .eq('org_id', orgId)
-      } else {
-        await supabase
-          .from('subscriptions')
-          .insert({ org_id: orgId, subscription_status: 'active', updated_at: new Date().toISOString() })
+          .single()
+
+        if (existing) {
+          await supabase
+            .from('subscriptions')
+            .update({ subscription_status: 'active', updated_at: new Date().toISOString() })
+            .eq('org_id', orgId)
+        } else {
+          await supabase
+            .from('subscriptions')
+            .insert({ org_id: orgId, subscription_status: 'active', updated_at: new Date().toISOString() })
+        }
       }
     }
   }

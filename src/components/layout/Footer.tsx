@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#1a1a1a]">
-          <p className="text-white/40 text-xs">Designed by Kadir Calik</p>
+          <p className="text-white/40 text-xs">Designed by Abdiaziz Mohamed</p>
           <p className="text-white/40 text-xs">©2026</p>
         </div>
       </div>

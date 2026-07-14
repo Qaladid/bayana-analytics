@@ -15,7 +15,22 @@ GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 INTERNAL_API_SECRET = os.environ.get("INTERNAL_API_SECRET", "")
-SYSTEM_PROMPT_PATH = os.path.join("/app", "system_prompt.txt")
+
+# Validate required environment variables
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY environment variable is not set")
+if not SUPABASE_URL:
+    raise ValueError("SUPABASE_URL environment variable is not set")
+if not SUPABASE_SERVICE_ROLE_KEY:
+    raise ValueError("SUPABASE_SERVICE_ROLE_KEY environment variable is not set")
+if not INTERNAL_API_SECRET:
+    raise ValueError("INTERNAL_API_SECRET environment variable is not set")
+
+# Determine system prompt path (use local path for development, /app for production)
+SYSTEM_PROMPT_PATH = os.environ.get(
+    "SYSTEM_PROMPT_PATH",
+    os.path.join(os.path.dirname(__file__), "system_prompt.txt")
+)
 
 app = FastAPI(title="Bayana AI Service")
 
@@ -33,8 +48,16 @@ app.add_middleware(
 groq_client = Groq(api_key=GROQ_API_KEY)
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
-with open(SYSTEM_PROMPT_PATH, "r") as f:
-    SYSTEM_PROMPT = f.read()
+# Load system prompt with error handling
+try:
+    with open(SYSTEM_PROMPT_PATH, "r") as f:
+        SYSTEM_PROMPT = f.read()
+except FileNotFoundError:
+    logger.warning(f"System prompt file not found at {SYSTEM_PROMPT_PATH}, using default prompt")
+    SYSTEM_PROMPT = "You are a helpful AI assistant for analytics queries."
+except Exception as e:
+    logger.error(f"Error loading system prompt: {e}")
+    SYSTEM_PROMPT = "You are a helpful AI assistant for analytics queries."
 
 
 class ChatRequest(BaseModel):
@@ -141,7 +164,14 @@ async def chat(req: ChatRequest, request: Request):
             for tool_call in response_message.tool_calls:
                 fn_name = tool_call.function.name
                 fn = TOOL_MAP.get(fn_name)
-                result = fn(req.org_id) if fn else "Unknown tool."
+                if fn:
+                    try:
+                        result = fn(req.org_id)
+                    except Exception as tool_exc:
+                        logger.error(f"Error executing tool {fn_name}: {tool_exc}")
+                        result = f"Error executing {fn_name}: {str(tool_exc)}"
+                else:
+                    result = f"Unknown tool: {fn_name}"
                 messages.append({
                     "role": "tool",
                     "tool_call_id": tool_call.id,
@@ -151,12 +181,15 @@ async def chat(req: ChatRequest, request: Request):
             second_completion = groq_client.chat.completions.create(
                 model="llama-3.3-70b-versatile",
                 messages=messages,
+                tools=TOOLS_SCHEMA,
             )
             reply = second_completion.choices[0].message.content
         else:
             reply = response_message.content
 
-        return ChatResponse(reply=reply or "I couldn't retrieve a response.")
+        if not reply:
+            reply = "I couldn't retrieve a response."
+        return ChatResponse(reply=reply)
 
     except Exception as exc:
         logger.exception("Chat error")
